@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 5000
+            response-timeout: 30s
+          routes:
+            - id: auth-route
+              uri: http://authentication:8089
+              predicates:
+                - Path=/api/auth/**
+
+jwt:
+  secret: ${JWT_SECRET:dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+
+logging:
+  level:
+    com.ongard: INFO
+    org.springframework.cloud.gateway: WARN

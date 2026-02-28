@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: authentication
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/db-auth
+    username: ms_usr
+    password: ms_usr_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: auth
+
+jwt:
+  secret: dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw
+  access-token-expiration: 1800
+  refresh-token-expiration: 864000
+
+bff:
+  url: http://localhost:8079
+
+server:
+  port: 8081
+
+logging:
+  level:
+    com.ongard: DEBUG
+    org.hibernate.SQL: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO

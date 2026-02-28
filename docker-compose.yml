@@ -1,0 +1,149 @@
+services:
+  # PostgreSQL Database Service - Game
+  postgres-game:
+    profiles: [ "db", "spring", "backend" ]
+    build:
+      context: ./database/db-game
+      dockerfile: Dockerfile
+    container_name: ongard-postgres-game
+    environment:
+      POSTGRES_DB: db-game
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-game-data:/var/lib/postgresql
+    networks:
+      - ongard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d db-game" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # PostgreSQL Database Service - Auth
+  postgres-auth:
+    profiles: [ "db", "spring", "backend" ]
+    build:
+      context: ./database/db-auth
+      dockerfile: Dockerfile
+    container_name: ongard-postgres-auth
+    environment:
+      POSTGRES_DB: db-auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-auth-data:/var/lib/postgresql
+    networks:
+      - ongard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d db-auth" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Liquibase Migration Service - Game
+  liquibase-game:
+    profiles: [ "db", "spring", "backend" ]
+    image: liquibase/liquibase:4.27
+    container_name: ongard-liquibase-game
+    depends_on:
+      postgres-game:
+        condition: service_healthy
+    volumes:
+      - ./database/db-game/liquibase/changelog:/liquibase/changelog
+    networks:
+      - ongard-network
+    command: >
+      --url=jdbc:postgresql://postgres-game:5432/db-game?currentSchema=game --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver update
+    restart: "no"
+
+  # Liquibase Migration Service - Auth
+  liquibase-auth:
+    profiles: [ "db", "spring", "backend" ]
+    image: liquibase/liquibase:4.27
+    container_name: ongard-liquibase-auth
+    depends_on:
+      postgres-auth:
+        condition: service_healthy
+    volumes:
+      - ./database/db-auth/liquibase/changelog:/liquibase/changelog
+    networks:
+      - ongard-network
+    command: >
+      --url=jdbc:postgresql://postgres-auth:5432/db-auth?currentSchema=auth --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver update
+    restart: "no"
+
+  # Redis - Pub/Sub and caching
+  redis:
+    profiles: [ "db", "spring", "backend" ]
+    image: redis:8-alpine
+    container_name: ongard-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - ongard-network
+    tmpfs:
+      - /data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # Authentication Microservice
+  authentication:
+    profiles: [ "spring", "backend" ]
+    build:
+      context: ./backend
+      dockerfile: authentication/Dockerfile
+      network: host
+    container_name: ongard-authentication
+    depends_on:
+      liquibase-auth:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWT_SECRET: ${JWT_SECRET:-dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+    ports:
+      - "8089:8089"
+    networks:
+      - ongard-network
+    restart: unless-stopped
+
+  # API Gateway
+  gateway:
+    profiles: [ "spring", "backend" ]
+    build:
+      context: ./backend
+      dockerfile: gateway/Dockerfile
+      network: host
+    container_name: ongard-gateway
+    depends_on:
+      - authentication
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWT_SECRET: ${JWT_SECRET:-dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+    ports:
+      - "8080:8080"
+    networks:
+      - ongard-network
+    restart: unless-stopped
+
+# Volumes
+volumes:
+  postgres-game-data:
+    driver: local
+  postgres-auth-data:
+    driver: local
+
+# Networks
+networks:
+  ongard-network:
+    driver: bridge
