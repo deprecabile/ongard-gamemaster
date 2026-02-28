@@ -10,9 +10,15 @@ spring:
             response-timeout: 30s
           routes:
             - id: auth-route
-              uri: http://localhost:8081
+              uri: http://localhost:8089
               predicates:
                 - Path=/api/auth/**
+            - id: chat-route
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/chat/**
+              filters:
+                - RewritePath=/api/chat/(?<segment>.*), /api/${segment}
 
 jwt:
   secret: dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw

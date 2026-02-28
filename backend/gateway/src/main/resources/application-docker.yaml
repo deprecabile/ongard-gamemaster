@@ -11,6 +11,12 @@ spring:
               uri: http://authentication:8089
               predicates:
                 - Path=/api/auth/**
+            - id: chat-route
+              uri: http://ongard-chat:8081
+              predicates:
+                - Path=/api/chat/**
+              filters:
+                - RewritePath=/api/chat/(?<segment>.*), /api/${segment}
 
 jwt:
   secret: ${JWT_SECRET:dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}

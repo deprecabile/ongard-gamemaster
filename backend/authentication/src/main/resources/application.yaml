@@ -28,7 +28,7 @@ ongard:
     url: http://localhost:8081
 
 server:
-  port: 8081
+  port: 8089
 
 logging:
   level:

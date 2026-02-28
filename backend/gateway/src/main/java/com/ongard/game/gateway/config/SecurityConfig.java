@@ -37,7 +37,10 @@ public class SecurityConfig {
   public SecurityWebFilterChain protectedSecurityFilterChain(ServerHttpSecurity http) {
     return http
         .csrf(ServerHttpSecurity.CsrfSpec::disable)
-        .authorizeExchange(exchanges -> exchanges.anyExchange().authenticated())
+        .authorizeExchange(exchanges -> exchanges
+            .pathMatchers("/api/chat/user").denyAll()
+            .anyExchange().authenticated()
+        )
         .oauth2ResourceServer(oauth2 -> oauth2
             .jwt(jwt -> jwt.jwtDecoder(reactiveJwtDecoder()))
         )
