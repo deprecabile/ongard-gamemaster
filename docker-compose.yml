@@ -136,6 +136,26 @@ services:
       - ongard-network
     restart: unless-stopped
 
+  # Ongard Chat Microservice
+  ongard-chat:
+    profiles: [ "spring", "backend" ]
+    build:
+      context: ./backend
+      dockerfile: ongard-chat/Dockerfile
+      network: host
+    container_name: ongard-chat
+    depends_on:
+      liquibase-game:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-game:5432/db-game
+    ports:
+      - "8081:8081"
+    networks:
+      - ongard-network
+    restart: unless-stopped
+
 # Volumes
 volumes:
   postgres-game-data:

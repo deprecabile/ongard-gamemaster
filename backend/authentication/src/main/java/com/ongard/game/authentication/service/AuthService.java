@@ -1,6 +1,6 @@
 package com.ongard.game.authentication.service;
 
-import com.ongard.game.authentication.client.BffClient;
+import com.ongard.game.authentication.client.ChatClient;
 import com.ongard.game.authentication.contract.*;
 import com.ongard.game.authentication.entity.AppUserEntity;
 import com.ongard.game.authentication.model.validation.AuthApiErrorCode;
@@ -24,7 +24,7 @@ public class AuthService {
 
   private final AppUserRepository appUserRepository;
   private final Argon2PasswordEncoder passwordEncoder;
-  private final BffClient bffClient;
+  private final ChatClient chatClient;
   private final JwtService jwtService;
 
   public LoginResponse login(LoginRequest request) {
@@ -86,7 +86,7 @@ public class AuthService {
 
     final AppUserEntity saved = appUserRepository.save(user);
 
-    bffClient.createUser(saved.getUserHash(), saved.getUsername());
+    chatClient.createUser(saved.getUserHash(), saved.getUsername());
 
     return RegisterResponse.builder()
         .userHash(saved.getUserHash())

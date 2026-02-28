@@ -1,9 +1,9 @@
 spring:
   application:
-    name: authentication
+    name: ongard-chat
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres-auth:5432/db-auth}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres-game:5432/db-game}
     username: ${SPRING_DATASOURCE_USERNAME:ms_usr}
     password: ${SPRING_DATASOURCE_PASSWORD:ms_usr_password}
     driver-class-name: org.postgresql.Driver
@@ -14,21 +14,10 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: false
-        default_schema: auth
-
-jwt:
-  secret: ${JWT_SECRET:dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
-  access-token-expiration: 1800
-  refresh-token-expiration: 864000
-
-ongard:
-  chat:
-    url: ${ONGARD_CHAT_URL:http://ongard-chat:8081}
 
 server:
-  port: 8089
+  port: 8081
 
 logging:
   level:

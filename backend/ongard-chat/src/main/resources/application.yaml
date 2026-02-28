@@ -1,9 +1,12 @@
 spring:
   application:
-    name: authentication
+    name: ongard-chat
+
+  jackson:
+    default-property-inclusion: non_null
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/db-auth
+    url: jdbc:postgresql://localhost:5432/db-game
     username: ms_usr
     password: ms_usr_password
     driver-class-name: org.postgresql.Driver
@@ -16,16 +19,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        default_schema: auth
-
-jwt:
-  secret: dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw
-  access-token-expiration: 1800
-  refresh-token-expiration: 864000
-
-ongard:
-  chat:
-    url: http://localhost:8081
 
 server:
   port: 8081

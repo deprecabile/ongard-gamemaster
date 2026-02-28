@@ -16,14 +16,14 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-class BffClientTest {
+class ChatClientTest {
 
   private RestClient restClient;
   private RestClient.RequestBodyUriSpec requestBodyUriSpec;
   private RestClient.RequestBodySpec requestBodySpec;
   private RestClient.ResponseSpec responseSpec;
 
-  private BffClient bffClient;
+  private ChatClient chatClient;
 
   @BeforeEach
   void setUp() throws Exception {
@@ -37,17 +37,17 @@ class BffClientTest {
     when(requestBodySpec.retrieve()).thenReturn(responseSpec);
     when(responseSpec.toBodilessEntity()).thenReturn(ResponseEntity.ok().build());
 
-    bffClient = new BffClient("http://localhost:9999");
-    Field field = BffClient.class.getDeclaredField("restClient");
+    chatClient = new ChatClient("http://localhost:9999");
+    Field field = ChatClient.class.getDeclaredField("restClient");
     field.setAccessible(true);
-    field.set(bffClient, restClient);
+    field.set(chatClient, restClient);
   }
 
   @Test
-  void createUser_callsBffSuccessfully() {
+  void createUser_callsChatServiceSuccessfully() {
     UUID userHash = UUID.randomUUID();
 
-    bffClient.createUser(userHash, "player1");
+    chatClient.createUser(userHash, "player1");
 
     verify(restClient).post();
     verify(requestBodyUriSpec).uri(eq("/api/user"), any(Object[].class));
@@ -56,7 +56,7 @@ class BffClientTest {
 
   @Test
   void createUser_doesNotThrowOnSuccess() {
-    assertThatCode(() -> bffClient.createUser(UUID.randomUUID(), "player1"))
+    assertThatCode(() -> chatClient.createUser(UUID.randomUUID(), "player1"))
         .doesNotThrowAnyException();
   }
 
@@ -64,7 +64,7 @@ class BffClientTest {
   void createUser_wrapsRestClientExceptionInAppException() {
     when(requestBodySpec.retrieve()).thenThrow(new RestClientException("Connection refused"));
 
-    assertThatThrownBy(() -> bffClient.createUser(UUID.randomUUID(), "player1"))
+    assertThatThrownBy(() -> chatClient.createUser(UUID.randomUUID(), "player1"))
         .isInstanceOf(AppException.class)
         .hasMessageContaining("Failed to sync user with game service");
   }
@@ -73,7 +73,7 @@ class BffClientTest {
   void createUser_wrapsAnyRuntimeExceptionInAppException() {
     when(responseSpec.toBodilessEntity()).thenThrow(new RuntimeException("Unexpected error"));
 
-    assertThatThrownBy(() -> bffClient.createUser(UUID.randomUUID(), "player1"))
+    assertThatThrownBy(() -> chatClient.createUser(UUID.randomUUID(), "player1"))
         .isInstanceOf(AppException.class)
         .hasMessageContaining("Failed to sync user with game service");
   }

@@ -2,7 +2,7 @@ package com.ongard.game.authentication.controller;
 
 import com.jayway.jsonpath.JsonPath;
 import com.ongard.game.authentication.TestcontainersConfiguration;
-import com.ongard.game.authentication.client.BffClient;
+import com.ongard.game.authentication.client.ChatClient;
 import com.ongard.game.authentication.entity.AppUserEntity;
 import com.ongard.game.authentication.entity.RefreshTokenEntity;
 import com.ongard.game.authentication.repository.AppUserRepository;
@@ -46,7 +46,7 @@ class AuthControllerTest extends TestcontainersConfiguration {
   @Autowired private RefreshTokenRepository refreshTokenRepository;
   @Autowired private Argon2PasswordEncoder passwordEncoder;
 
-  @MockitoBean private BffClient bffClient;
+  @MockitoBean private ChatClient chatClient;
 
   private AppUserEntity testUser;
 
@@ -58,7 +58,7 @@ class AuthControllerTest extends TestcontainersConfiguration {
         .filter(u -> !"postman".equals(u.getUsername()))
         .forEach(appUserRepository::delete);
 
-    doNothing().when(bffClient).createUser(any(), anyString());
+    doNothing().when(chatClient).createUser(any(), anyString());
 
     // Create a test user with known password
     testUser = appUserRepository.save(AppUserEntity.builder()

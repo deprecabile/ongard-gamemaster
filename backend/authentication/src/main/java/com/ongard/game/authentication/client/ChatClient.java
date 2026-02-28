@@ -12,19 +12,19 @@ import java.util.UUID;
 
 @Component
 @Slf4j
-public class BffClient {
+public class ChatClient {
 
   private final RestClient restClient;
 
-  public BffClient(@Value( "${bff.url}" ) String bffUrl) {
+  public ChatClient(@Value("${ongard.chat.url}") String chatUrl) {
     this.restClient = RestClient.builder()
-        .baseUrl(bffUrl)
+        .baseUrl(chatUrl)
         .build();
   }
 
   public void createUser(UUID userHash, String username) {
-    log.debug("Requesting BFF to create game user for userHash={}", userHash);
-    try{
+    log.debug("Requesting chat service to create game user for userHash={}", userHash);
+    try {
       restClient.post()
           .uri("/api/user")
           .contentType(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class BffClient {
           .retrieve()
           .toBodilessEntity();
       log.debug("Game user created successfully for userHash={}", userHash);
-    }catch(Exception e){
-      log.error("Failed to create game user on BFF for userHash={}", userHash, e);
+    } catch (Exception e) {
+      log.error("Failed to create game user on chat service for userHash={}", userHash, e);
       throw new AppException("Failed to sync user with game service");
     }
   }
