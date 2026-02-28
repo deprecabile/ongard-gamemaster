@@ -37,5 +37,3 @@ The core flow follows a **Draft -> Validate -> Publish** pattern:
 
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPLv3)** - see the [LICENSE](LICENSE) file for details.
 
-### Commercial Use
-If you wish to use this engine for commercial purposes without the strict copyleft obligations of the AGPLv3 (e.g., keeping your modifications and infrastructure proprietary, or offering it as a closed SaaS), please contact me to arrange a commercial license.
