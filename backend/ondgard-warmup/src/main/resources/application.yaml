@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: ondgard-warmup
+  main:
+    web-application-type: none
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+ondgard:
+  warmup:
+    ollama-gpu:
+      base-url: http://localhost:11434
+      model: VitoF/llama-3.1-8b-italian
+    ollama-cpu:
+      base-url: http://localhost:11435
+      model: qwen3:4b
+      embedding-model: qwen3-embedding
+    health-check:
+      max-retries: 30
+      retry-interval-ms: 10000
+    warmup:
+      timeout-seconds: 300
+      max-retries: 2
+
+logging:
+  level:
+    com.ongard: INFO
