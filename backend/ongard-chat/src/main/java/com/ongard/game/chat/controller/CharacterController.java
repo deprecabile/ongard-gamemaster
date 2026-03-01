@@ -35,7 +35,7 @@ public class CharacterController {
   public ResponseEntity<PlayerCharacter> createCharacter(
       @RequestBody PlayerCharacterSaveRequest request,
       @RequestHeader( GameUserHeader.HEADER_NAME ) GameUserHeader userHeader) {
-    PlayerCharacter created = characterService.createCharacter(request, userHeader);
+    final PlayerCharacter created = characterService.createCharacter(request, userHeader);
     return ResponseEntity.status(HttpStatus.CREATED).body(created);
   }
 }

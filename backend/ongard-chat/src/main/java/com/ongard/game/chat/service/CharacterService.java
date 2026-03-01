@@ -11,13 +11,16 @@ import com.ongard.game.exception.NoResultException;
 import com.ongard.game.header.GameUserHeader;
 import com.ongard.game.tool.HashGenerator;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.Collection;
 import java.util.UUID;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class CharacterService {
 
@@ -53,8 +56,9 @@ public class CharacterService {
     final String characterHash = HashGenerator.generateHash();
 
     playerCharacterRepository.insertCharacter(userHash, raceCode, characterHash,
-        request.getName(), request.getDescription());
+        StringUtils.trimAllWhitespace(request.getName()), request.getDescription().trim());
 
+    log.info("Successfully created character {} for user: {}, {}", request.getName(), userHeader.getUsername(), userHeader.getUserId());
     return playerCharacterRepository.findByCharacterHashAndUserHash(characterHash, userHash)
         .map(this::toModel)
         .orElseThrow(NoResultException::new);
