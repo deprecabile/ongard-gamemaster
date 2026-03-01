@@ -1,2 +1,16 @@
-// ─── SCSS Variables ────────────────────────────────────────
-// Add project-specific SCSS variables here.
+// ─── Layout ────────────────────────────────────────────────
+$sidebar-width: 260px;
+$header-height: 60px;
+
+// ─── Spacing ───────────────────────────────────────────────
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// ─── Border radius ─────────────────────────────────────────
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;

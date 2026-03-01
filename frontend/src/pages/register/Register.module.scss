@@ -1,0 +1,53 @@
+.registerPage {
+  @include flex-center;
+  min-height: calc(100vh - $header-height);
+  padding: $spacing-xl;
+}
+
+.fieldError {
+  font-size: 0.8125rem;
+  color: var(--color-error);
+}
+
+.fieldChecking {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.fieldSuccess {
+  font-size: 0.8125rem;
+  color: var(--color-success);
+}
+
+.passwordRules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: $spacing-xs;
+}
+
+.ruleMet {
+  font-size: 0.8125rem;
+  color: var(--color-success);
+
+  &::before {
+    content: '\2713  ';
+  }
+}
+
+.ruleUnmet {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+
+  &::before {
+    content: '\2022  ';
+  }
+}
+
+.linkText {
+  text-align: center;
+  margin-top: $spacing-lg;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}

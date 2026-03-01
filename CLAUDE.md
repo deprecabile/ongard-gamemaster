@@ -76,3 +76,36 @@ Client → Gateway (:8080) → Authentication (:8089)
 - `POST /api/auth/login/refresh` — Refresh access token
 - `GET /api/auth/check-username?username=` — Check username availability
 - `POST /api/user` — Create game user (internal, called by auth service)
+
+## Frontend (`frontend/`)
+
+React 19 + TypeScript 5.9 + Vite 7. Dettagli nel `frontend/README.md`.
+
+### Build & Run
+
+```bash
+cd frontend
+npm run dev          # Dev server con HMR (proxy /api → localhost:8080)
+npm run build        # tsc -b + vite build
+npm run lint         # ESLint
+npm run test         # Vitest
+npm run format       # Prettier
+```
+
+### Regole per generare codice frontend
+
+- **TypeScript strict** — `noEmit: true`, `target: ES2024`, `moduleResolution: bundler`. Mai usare `any`; mai usare
+  `composite: true` nei tsconfig (genera .d.ts nelle cartelle sorgente)
+- **Path alias** — usare sempre `@/` per gli import da `src/`. Import relativi ascendenti (`../`) sono vietati da ESLint
+- **Ordine import** (enforced da `simple-import-sort`): (1) React e librerie esterne → (2) import `@/` di progetto → (3)
+  file `.scss` per ultimi. Ogni gruppo separato da riga vuota
+- **Stili** — SCSS con CSS Modules: ogni componente ha il suo `NomeComponente.module.scss`. I mixin globali (
+  `_mixins.scss`) sono iniettati automaticamente da Vite, non serve `@use`. Design tokens come CSS custom properties in
+  `index.scss`
+- **Naming convention** (enforced da `check-file`):
+    - File `.tsx` → `PascalCase` (componenti React)
+    - File `.ts` → `camelCase` (utility, hook, service)
+    - Cartelle → `kebab-case`
+- **Test** — Vitest + React Testing Library in `tests/` (esterna a `src/`). Globals abilitati (`describe`/`it`/`expect`
+  senza import). Environment `jsdom`
+- **Prettier** — single quote, trailing comma, printWidth 100, JSX single quote. Integrato in ESLint come regola

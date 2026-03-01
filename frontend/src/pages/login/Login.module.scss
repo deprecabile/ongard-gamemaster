@@ -1,0 +1,22 @@
+.loginPage {
+  @include flex-center;
+  min-height: calc(100vh - $header-height);
+  padding: $spacing-xl;
+}
+
+.success {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  border: 1px solid var(--color-success);
+  border-radius: $radius-sm;
+  color: var(--color-success);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.linkText {
+  text-align: center;
+  margin-top: $spacing-lg;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}

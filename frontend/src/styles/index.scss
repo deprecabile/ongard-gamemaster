@@ -1,16 +1,32 @@
-@use 'variables' as *;
-
 // ─── CSS Custom Properties (Design Tokens) ────────────────
 :root {
-  --color-bg: #242424;
-  --color-text: rgba(255, 255, 255, 0.87);
-  --color-link: #646cff;
-  --color-link-hover: #535bf2;
+  // Colors
+  --color-bg: #1a1410;
+  --color-surface: #2c2419;
+  --color-text: #e8dcc8;
+  --color-text-muted: #a89880;
+  --color-accent: #c89b3c;
+  --color-accent-hover: #d4a94a;
+  --color-error: #c44b3f;
+  --color-success: #4a9e5c;
+  --color-border: #3d3225;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  // Typography
+  --font-body: system-ui, sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 40%);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 50%);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 60%);
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  font-family: var(--font-body);
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   color: var(--color-text);
   background-color: var(--color-bg);
 
@@ -36,19 +52,111 @@ body {
 
 a {
   font-weight: 500;
-  color: var(--color-link);
-  text-decoration: inherit;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 
   &:hover {
-    color: var(--color-link-hover);
+    color: var(--color-accent-hover);
   }
 }
 
-// ─── Light mode ────────────────────────────────────────────
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #ffffff;
-    --color-text: #213547;
-    --color-link-hover: #747bff;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+// ─── Utility Classes ───────────────────────────────────────
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: $spacing-xl;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-lg);
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    color: var(--color-accent);
   }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  input {
+    padding: $spacing-sm $spacing-md;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-sm;
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+}
+
+.btn-submit {
+  padding: $spacing-sm $spacing-lg;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: $radius-sm;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    opacity var(--transition-fast);
+  margin-top: $spacing-sm;
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.error-banner {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-error) 15%, transparent);
+  border: 1px solid var(--color-error);
+  border-radius: $radius-sm;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  text-align: center;
 }
