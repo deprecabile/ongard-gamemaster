@@ -16,8 +16,22 @@ spring:
       hibernate:
         format_sql: false
 
+  # Redis (Docker service name)
+  data:
+    redis:
+      host: redis
+      port: 6379
+
 server:
   port: 8081
+
+# --- Dual Ollama AI Configuration (solo URL override — options ereditate dal file base) ---
+ondgard:
+  ai:
+    ollama-gpu:
+      base-url: http://ollama-gpu:11434
+    ollama-cpu:
+      base-url: http://ollama-cpu:11434
 
 logging:
   level:

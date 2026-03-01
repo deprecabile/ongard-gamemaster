@@ -20,8 +20,47 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
+  # Disable Spring AI Ollama auto-configuration — we create ChatModel beans manually in ModelConfig
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.ollama.OllamaAutoConfiguration
+
+  # Redis (local)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
 server:
   port: 8081
+
+# --- Dual Ollama AI Configuration ---
+ondgard:
+  ai:
+    ollama-gpu:
+      base-url: http://localhost:11434
+      model: VitoF/llama-3.1-8b-italian
+      options:
+        temperature: 0.7
+        num-predict: 2048
+        top-p: 0.9
+    ollama-cpu:
+      base-url: http://localhost:11435
+      model: qwen3:4b
+      embedding-model: qwen3-embedding
+      options:
+        temperature: 0.0
+        num-predict: 512
+        top-p: 1.0
+        top-k: 1
+
+  session:
+    flush-every-n-turns: 5
+    inactivity-timeout: 30m
+
+  game:
+    summary:
+      trigger-every-n-turns: 5
 
 logging:
   level:
