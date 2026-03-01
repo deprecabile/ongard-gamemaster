@@ -35,3 +35,6 @@ build/
 ### Generated ###
 log/
 .claude/
+
+### Custom ###
+start-windowsterminal.bat
