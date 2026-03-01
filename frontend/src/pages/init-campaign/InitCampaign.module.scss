@@ -1,0 +1,61 @@
+.page {
+  max-width: 640px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: $spacing-xxl;
+}
+
+.form {
+  @include flex-col;
+  gap: $spacing-xl;
+}
+
+.section {
+  padding: $spacing-xl;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  @include flex-col;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: $spacing-sm;
+}
+
+.select,
+.textarea {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a89880' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}

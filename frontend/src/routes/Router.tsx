@@ -3,7 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import MainLayout from '@/components/layout/MainLayout';
 import PublicLayout from '@/components/layout/PublicLayout';
+import Campaign from '@/pages/campaign/Campaign';
 import Dashboard from '@/pages/dashboard/Dashboard';
+import InitCampaign from '@/pages/init-campaign/InitCampaign';
 import Landing from '@/pages/landing/Landing';
 import Login from '@/pages/login/Login';
 import Register from '@/pages/register/Register';
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
           {
             path: ROUTES.DASHBOARD,
             element: <Dashboard />,
+          },
+          {
+            path: ROUTES.INIT_CAMPAIGN,
+            element: <InitCampaign />,
+          },
+          {
+            path: ROUTES.CAMPAIGN,
+            element: <Campaign />,
           },
         ],
       },

@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+
+import { ROUTES } from '@/routes/routes';
 import { useAuthStore } from '@/store/useAuthStore';
 
 import styles from './Dashboard.module.scss';
@@ -14,7 +17,9 @@ const Dashboard = () => {
         <div className={styles.card}>
           <h3>Nuova Campagna</h3>
           <p>Inizia una nuova avventura epica</p>
-          <span className={styles.comingSoon}>Prossimamente</span>
+          <Link to={ROUTES.INIT_CAMPAIGN} className={styles.startButton}>
+            Inizia
+          </Link>
         </div>
         <div className={styles.card}>
           <h3>Continua Avventura</h3>

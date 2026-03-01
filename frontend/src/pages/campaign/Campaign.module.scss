@@ -1,0 +1,19 @@
+.page {
+  @include flex-col;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: $spacing-md;
+}
+
+.placeholder {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
