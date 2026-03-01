@@ -99,6 +99,14 @@ export default tseslint.config(
     },
   },
 
+  // Test files — relax strict rules
+  {
+    files: ['tests/**/*.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+  },
+
   // Prettier — must come last to override formatting rules
   prettier,
 );
