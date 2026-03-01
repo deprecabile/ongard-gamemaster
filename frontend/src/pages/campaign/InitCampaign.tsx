@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MDEditor from '@uiw/react-md-editor';
 
 import { characterService } from '@/api/characterService';
 import { ROUTES } from '@/routes/routes';
@@ -31,9 +32,9 @@ const InitCampaign = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (!isValid || !races) return;
+    if (!isValid) return;
 
-    const race = races.find((r) => r.code === raceCode);
+    const race = races.get(raceCode);
     if (!race) return;
 
     setError(null);
@@ -71,12 +72,17 @@ const InitCampaign = () => {
               }}
             >
               <option value=''>Seleziona una razza</option>
-              {races?.map((r) => (
+              {Array.from(races.values()).map((r) => (
                 <option key={r.code} value={r.code}>
                   {r.name}
                 </option>
               ))}
             </select>
+            {raceCode && races.has(raceCode) && (
+              <div className={styles.raceDescription}>
+                <p>{races.get(raceCode)?.description}</p>
+              </div>
+            )}
           </div>
 
           <div className='form-field'>
@@ -110,18 +116,22 @@ const InitCampaign = () => {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Contesto iniziale</h2>
 
-          <div className='form-field'>
-            <label htmlFor='context'>Descrivi il contesto di partenza</label>
-            <textarea
-              id='context'
-              className={styles.textarea}
-              value={context}
-              onChange={(e) => {
-                setContext(e.target.value);
-              }}
-              placeholder='Dove inizia la tua avventura? Qual è la situazione di partenza?'
-              rows={6}
-            />
+          <div className='form-field' style={{ height: '100%' }}>
+            <label htmlFor='context'>Descrivi il contesto di partenza (Markdown supportato)</label>
+            <div data-color-mode='dark' style={{ flexGrow: 1 }}>
+              <MDEditor
+                value={context}
+                onChange={(val) => {
+                  setContext(val ?? '');
+                }}
+                height={400}
+                textareaProps={{
+                  placeholder:
+                    'Dove inizia la tua avventura? Qual è la situazione di partenza? Puoi usare il formato Markdown.',
+                }}
+                preview='edit'
+              />
+            </div>
           </div>
         </section>
 

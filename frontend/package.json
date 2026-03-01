@@ -13,6 +13,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,scss}\""
   },
   "dependencies": {
+    "@uiw/react-md-editor": "^4.0.11",
     "axios": "^1.13.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

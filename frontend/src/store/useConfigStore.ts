@@ -4,16 +4,16 @@ import { gameRaceService } from '@/api/gameRaceService';
 import type { GameRace } from '@/contract/gameRace';
 
 interface ConfigState {
-  races: GameRace[] | null;
-  loadRaces: () => Promise<GameRace[]>;
+  races: Map<string, GameRace>;
+  loadRaces: () => Promise<Map<string, GameRace>>;
 }
 
 export const useConfigStore = create<ConfigState>()((set, get) => ({
-  races: null,
+  races: new Map(),
 
   loadRaces: async () => {
     const cached = get().races;
-    if (cached) return cached;
+    if (cached.size > 0) return cached;
 
     const races = await gameRaceService.getRaces();
     set({ races });

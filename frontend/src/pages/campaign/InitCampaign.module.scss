@@ -1,5 +1,7 @@
 .page {
-  max-width: 640px;
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .title {
@@ -10,8 +12,14 @@
 }
 
 .form {
-  @include flex-col;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: $spacing-xl;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
 }
 
 .section {

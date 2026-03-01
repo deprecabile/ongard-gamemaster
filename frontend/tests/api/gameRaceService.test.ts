@@ -26,6 +26,9 @@ describe('gameRaceService', () => {
     const result = await gameRaceService.getRaces();
 
     expect(mockGet).toHaveBeenCalledWith('/chat/config/races');
-    expect(result).toEqual(mockRaces);
+    const expectedMap = new Map<string, GameRace>(
+      (mockRaces as unknown as GameRace[]).map((r) => [r.code, r])
+    );
+    expect(result).toEqual(expectedMap);
   });
 });
