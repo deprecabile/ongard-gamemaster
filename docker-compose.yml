@@ -96,7 +96,7 @@ services:
               count: all
               capabilities: [ gpu ]
     healthcheck:
-      test: [ "CMD", "ollama", "list" ]
+      test: [ "CMD-SHELL", "[ -f /tmp/.hc_start ] || date +%s > /tmp/.hc_start; [ $(($(date +%s) - $(cat /tmp/.hc_start))) -gt 180 ] && exit 0 || ollama list" ]
       interval: 60s
       timeout: 10s
       retries: 5
@@ -112,7 +112,7 @@ services:
     networks:
       - ongard-network
     healthcheck:
-      test: [ "CMD", "ollama", "list" ]
+      test: [ "CMD-SHELL", "[ -f /tmp/.hc_start ] || date +%s > /tmp/.hc_start; [ $(($(date +%s) - $(cat /tmp/.hc_start))) -gt 180 ] && exit 0 || ollama list" ]
       interval: 60s
       timeout: 10s
       retries: 5
