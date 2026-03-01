@@ -79,6 +79,45 @@ services:
       --url=jdbc:postgresql://postgres-auth:5432/db-auth?currentSchema=auth --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver update
     restart: "no"
 
+  # Ollama GPU — Creative narrative LLM (VitoF/llama-3.1-8b-italian)
+  ollama-gpu:
+    profiles: [ "llm", "backend" ]
+    image: ongard-ollama-gpu
+    container_name: ongard-ollama-gpu
+    ports:
+      - "11434:11434"
+    networks:
+      - ongard-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1" ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  # Ollama CPU — Deterministic validation + embeddings (qwen3:4b, qwen3-embedding)
+  ollama-cpu:
+    profiles: [ "llm", "backend" ]
+    image: ongard-ollama-cpu
+    container_name: ongard-ollama-cpu
+    ports:
+      - "11435:11434"
+    networks:
+      - ongard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1" ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
   # Redis - Pub/Sub and caching
   redis:
     profiles: [ "db", "spring", "backend" ]
