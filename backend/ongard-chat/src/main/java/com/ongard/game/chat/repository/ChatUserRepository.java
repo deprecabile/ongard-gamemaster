@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface ChatUserRepository extends JpaRepository<ChatUserEntity, Long> {
-    Optional<ChatUserEntity> findByUserHash(UUID userHash);
+  Optional<ChatUserEntity> findByUserHash(UUID userHash);
 }

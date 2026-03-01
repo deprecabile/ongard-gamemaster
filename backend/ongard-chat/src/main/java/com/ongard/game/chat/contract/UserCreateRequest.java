@@ -12,6 +12,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserCreateRequest implements Serializable {
 
-    private UUID userHash;
-    private String username;
+  private UUID userHash;
+  private String username;
 }

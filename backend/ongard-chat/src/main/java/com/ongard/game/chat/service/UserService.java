@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final ChatUserRepository chatUserRepository;
+  private final ChatUserRepository chatUserRepository;
 
-    public void createUser(UserCreateRequest request) {
-        ChatUserEntity user = ChatUserEntity.builder()
-                .userHash(request.getUserHash())
-                .username(request.getUsername())
-                .build();
-        chatUserRepository.save(user);
-    }
+  public void createUser(UserCreateRequest request) {
+    ChatUserEntity user = ChatUserEntity.builder()
+        .userHash(request.getUserHash())
+        .username(request.getUsername())
+        .build();
+    chatUserRepository.save(user);
+  }
 }

@@ -11,24 +11,24 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "game_user")
+@Table( name = "game_user" )
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ChatUserEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue( strategy = GenerationType.IDENTITY )
+  private Long id;
 
-    @Column(name = "user_hash", nullable = false, unique = true)
-    private UUID userHash;
+  @Column( name = "user_hash", nullable = false, unique = true )
+  private UUID userHash;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+  @Column( nullable = false, unique = true )
+  private String username;
 
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime created;
+  @CreationTimestamp
+  @Column( nullable = false, updatable = false )
+  private LocalDateTime created;
 }

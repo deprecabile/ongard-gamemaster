@@ -14,20 +14,20 @@ import java.util.concurrent.Executor;
 @EnableAsync
 public class AsyncConfig implements AsyncConfigurer {
 
-    @Override
-    public Executor getAsyncExecutor() {
-        final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(2);
-        executor.setMaxPoolSize(4);
-        executor.setQueueCapacity(50);
-        executor.setThreadNamePrefix("async-");
-        executor.initialize();
-        return executor;
-    }
+  @Override
+  public Executor getAsyncExecutor() {
+    final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+    executor.setCorePoolSize(2);
+    executor.setMaxPoolSize(4);
+    executor.setQueueCapacity(50);
+    executor.setThreadNamePrefix("async-");
+    executor.initialize();
+    return executor;
+  }
 
-    @Override
-    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-        return (ex, method, params) ->
-                log.error("Async exception in method {}: {}", method.getName(), ex.getMessage(), ex);
-    }
+  @Override
+  public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+    return (ex, method, params) ->
+        log.error("Async exception in method {}: {}", method.getName(), ex.getMessage(), ex);
+  }
 }

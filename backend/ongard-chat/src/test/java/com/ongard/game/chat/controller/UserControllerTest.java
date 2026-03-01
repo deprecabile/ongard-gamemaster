@@ -22,20 +22,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class UserControllerTest extends TestcontainersConfiguration {
 
-    @Autowired private MockMvc mockMvc;
-    @Autowired private ChatUserRepository chatUserRepository;
+  @Autowired private MockMvc mockMvc;
+  @Autowired private ChatUserRepository chatUserRepository;
 
-    private final Gson gson = GameGsonFactory.build();
+  private final Gson gson = GameGsonFactory.build();
 
-    @Test
-    void createUser_returns201AndPersistsUser() throws Exception {
-        UUID userHash = UUID.randomUUID();
+  @Test
+  void createUser_returns201AndPersistsUser() throws Exception {
+    UUID userHash = UUID.randomUUID();
 
-        mockMvc.perform(post("/api/user")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(gson.toJson(new UserCreateRequest(userHash, "newplayer"))))
-                .andExpect(status().isCreated());
+    mockMvc.perform(post("/api/user")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(gson.toJson(new UserCreateRequest(userHash, "newplayer"))))
+        .andExpect(status().isCreated());
 
-        assertThat(chatUserRepository.findByUserHash(userHash)).isPresent();
-    }
+    assertThat(chatUserRepository.findByUserHash(userHash)).isPresent();
+  }
 }

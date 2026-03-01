@@ -24,19 +24,19 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class JacksonConfig {
 
-    @Bean
-    public HibernatePropertiesCustomizer hibernateJsonFormatMapperCustomizer() {
-        return properties -> {
-            var module = new JavaTimeModule();
-            module.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-            module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-            module.addSerializer(LocalDate.class, new LocalDateSerializer(DateTimeFormatter.ISO_LOCAL_DATE));
-            module.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ISO_LOCAL_DATE));
+  @Bean
+  public HibernatePropertiesCustomizer hibernateJsonFormatMapperCustomizer() {
+    return properties -> {
+      var module = new JavaTimeModule();
+      module.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+      module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+      module.addSerializer(LocalDate.class, new LocalDateSerializer(DateTimeFormatter.ISO_LOCAL_DATE));
+      module.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ISO_LOCAL_DATE));
 
-            var objectMapper = new com.fasterxml.jackson.databind.ObjectMapper();
-            objectMapper.registerModule(module);
+      var objectMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+      objectMapper.registerModule(module);
 
-            properties.put(AvailableSettings.JSON_FORMAT_MAPPER, new JacksonJsonFormatMapper(objectMapper));
-        };
-    }
+      properties.put(AvailableSettings.JSON_FORMAT_MAPPER, new JacksonJsonFormatMapper(objectMapper));
+    };
+  }
 }
