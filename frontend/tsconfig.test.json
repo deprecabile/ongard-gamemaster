@@ -27,9 +27,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@fixtures/*": [
+        "./tests/fixtures/*"
       ]
     }
   },

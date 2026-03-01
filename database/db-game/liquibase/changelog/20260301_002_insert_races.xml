@@ -11,31 +11,23 @@
 
         <sql>
             INSERT INTO cfg_race (code, name, description, attributes) VALUES
-            ('UMN', 'Umano', 'Versatili e ambiziosi, gli umani sono la razza più diffusa. Si adattano a qualsiasi
-            ambiente e costruiscono grandi civiltà.',
+            ('UMN', 'Umano', 'Versatili e ambiziosi, gli umani sono la razza più diffusa. Si adattano a qualsiasi ambiente e costruiscono grandi civiltà.',
             '{"minHeight": 155, "maxHeight": 195, "favoriteBiomes": ["pianure", "colline", "coste"]}'),
-            ('ELF', 'Elfo', 'Aggraziati e longevi, gli elfi vivono in armonia con la natura. La loro saggezza millenaria
-            li rende maestri nelle arti arcane.',
+            ('ELF', 'Elfo', 'Aggraziati e longevi, gli elfi vivono in armonia con la natura. La loro saggezza millenaria li rende maestri nelle arti arcane.',
             '{"minHeight": 170, "maxHeight": 210, "favoriteBiomes": ["foreste", "boschi", "radure"]}'),
-            ('NAN', 'Nano', 'Robusti e tenaci, i nani sono abili artigiani e minatori. Vivono nelle profondità delle
-            montagne, conservano rancore per sempre e custodiscono antiche forge.',
+            ('NAN', 'Nano', 'Robusti e tenaci, i nani sono abili artigiani e minatori. Vivono nelle profondità delle montagne, conservano rancore per sempre e custodiscono antiche forge.',
             '{"minHeight": 110, "maxHeight": 140, "favoriteBiomes": ["montagne", "caverne", "sotterranei"]}'),
-            ('GNO', 'Gnomo', 'Curiosi e inventivi, gli gnomi sono piccoli di statura ma grandi di ingegno. Amano i
-            meccanismi e le illusioni.',
+            ('GNO', 'Gnomo', 'Curiosi e inventivi, gli gnomi sono piccoli di statura ma grandi di ingegno. Amano i meccanismi e le illusioni.',
             '{"minHeight": 80, "maxHeight": 110, "favoriteBiomes": ["colline", "boschi", "prati"]}'),
-            ('ORC', 'Orco', 'Forti e fieri, gli orchi seguono un rigido codice d''onore tribale. La loro resistenza
-            fisica è leggendaria.',
+            ('ORC', 'Orco', 'Forti e fieri, gli orchi seguono un rigido codice d''onore tribale. La loro resistenza fisica è leggendaria.',
             '{"minHeight": 175, "maxHeight": 220, "favoriteBiomes": ["steppe", "paludi", "terre desolate"]}'),
-            ('TRO', 'Troll', 'Imponenti e rigenerativi, i troll sono creature antiche legate alla terra. La loro pelle è
-            dura come la roccia.',
+            ('TRO', 'Troll', 'Imponenti e rigenerativi, i troll sono creature antiche legate alla terra. La loro pelle è dura come la roccia.',
             '{"minHeight": 200, "maxHeight": 280, "favoriteBiomes": ["paludi", "caverne", "foreste oscure"]}'),
-            ('GOB', 'Goblin', 'Astuti e numerosi, i goblin compensano la loro piccola taglia con furbizia e ingegnosità.
-            Maestri di trappole e imboscate.',
+            ('GOB', 'Goblin', 'Astuti e numerosi, i goblin compensano la loro piccola taglia con furbizia e ingegnosità. Maestri di trappole e imboscate.',
             '{"minHeight": 90, "maxHeight": 130, "favoriteBiomes": ["caverne", "sotterranei", "rovine"]}'),
             ('RET', 'Rettiliano', 'A sangue freddo e calcolatori, i rettiliani sono antichi quanto il mondo stesso.',
             '{"minHeight": 170, "maxHeight": 200, "favoriteBiomes": ["paludi", "giungle", "deserti"]}'),
-            ('XER', 'Xeroba', 'Misteriosi nomadi delle savane, gli Xeroba possiedono una connessione unica con gli
-            spiriti ancestrali e la terra selvaggia. Il loro aspetto felino li rende misteriosi ed imperscrutabili.',
+            ('XER', 'Xeroba', 'Misteriosi nomadi delle savane, gli Xeroba possiedono una connessione unica con gli spiriti ancestrali e la terra selvaggia. Il loro aspetto felino li rende misteriosi e imperscrutabili.',
             '{"minHeight": 140, "maxHeight": 170, "favoriteBiomes": ["savane", "pianure", "foreste"]}');
         </sql>
     </changeSet>
