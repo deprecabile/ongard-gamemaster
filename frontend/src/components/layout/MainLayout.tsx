@@ -1,5 +1,6 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
+import UserMenu from '@/components/user-menu/UserMenu';
 import { ROUTES } from '@/routes/routes';
 import { useAuthStore } from '@/store/useAuthStore';
 
@@ -17,27 +18,12 @@ const MainLayout = () => {
 
   return (
     <div className={styles.mainLayout}>
-      <aside className={styles.sidebar}>
-        <div className={styles.logo}>Ongard</div>
-
-        <div className={styles.userSection}>
-          <div className={styles.userName}>{username}</div>
-          <div className={styles.userRole}>Avventuriero</div>
-        </div>
-
-        <nav className={styles.nav}>
-          <NavLink
-            to={ROUTES.DASHBOARD}
-            className={({ isActive }) => (isActive ? styles.active : '')}
-          >
-            Dashboard
-          </NavLink>
-        </nav>
-
-        <button type='button' className={styles.logoutButton} onClick={handleLogout}>
-          Logout
-        </button>
-      </aside>
+      <header className={styles.topbar}>
+        <Link to={ROUTES.DASHBOARD} className={styles.logo}>
+          Ongard
+        </Link>
+        <UserMenu username={username ?? ''} onLogout={handleLogout} />
+      </header>
       <main className={styles.content}>
         <Outlet />
       </main>
