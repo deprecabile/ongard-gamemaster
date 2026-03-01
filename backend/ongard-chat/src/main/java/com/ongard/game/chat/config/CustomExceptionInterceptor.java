@@ -2,11 +2,14 @@ package com.ongard.game.chat.config;
 
 import com.ongard.game.exception.*;
 import com.ongard.game.model.validation.ApiError;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+@Log4j2
 @ControllerAdvice
 public class CustomExceptionInterceptor {
 
@@ -28,6 +31,12 @@ public class CustomExceptionInterceptor {
   @ExceptionHandler( NoResultException.class )
   public ResponseEntity<Void> handleNoResultException(NoResultException ex) {
     return ResponseEntity.noContent().build();
+  }
+
+  @ExceptionHandler( DataIntegrityViolationException.class )
+  public ResponseEntity<ApiError> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+    log.error(ex);
+    return ResponseEntity.status(HttpStatus.CONFLICT).body(ApiError.fromMessage("OC_409_00", "Something went wrong"));
   }
 
   @ExceptionHandler( AppException.class )

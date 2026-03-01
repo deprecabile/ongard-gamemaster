@@ -10,5 +10,6 @@
 	<include file="changelog/20260228_002_initial_config.xml" relativeToChangelogFile="false"/>
     <include file="changelog/20260301_001_create_cfg_race.xml" relativeToChangelogFile="false"/>
     <include file="changelog/20260301_002_insert_races.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_003_create_player_character.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

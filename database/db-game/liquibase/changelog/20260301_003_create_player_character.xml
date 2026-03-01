@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="001-create-player-character-table" author="devops">
+        <comment>Create player_character table for player-created characters</comment>
+
+        <sql>
+            CREATE TABLE player_character (
+                id              BIGINT GENERATED ALWAYS AS IDENTITY,
+                user_id         BIGINT NOT NULL,
+                race_id         BIGINT NOT NULL,
+                character_hash  TEXT NOT NULL,
+                name            TEXT NOT NULL,
+                description     TEXT NOT NULL,
+                created         TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+                CONSTRAINT pk_player_character PRIMARY KEY (id),
+                CONSTRAINT uq_player_character_hash UNIQUE (character_hash),
+                CONSTRAINT fk_player_character_user FOREIGN KEY (user_id)
+                    REFERENCES game_user (id),
+                CONSTRAINT fk_player_character_race FOREIGN KEY (race_id)
+                    REFERENCES cfg_race (id)
+            );
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS player_character;</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
