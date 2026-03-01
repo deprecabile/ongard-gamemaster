@@ -27,7 +27,7 @@ describe('gameRaceService', () => {
 
     expect(mockGet).toHaveBeenCalledWith('/chat/config/races');
     const expectedMap = new Map<string, GameRace>(
-      (mockRaces as unknown as GameRace[]).map((r) => [r.code, r])
+      (mockRaces as unknown as GameRace[]).map((r) => [r.code, r]),
     );
     expect(result).toEqual(expectedMap);
   });

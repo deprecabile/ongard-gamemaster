@@ -11,7 +11,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'eslint.config.js', '**/*.d.ts'] },
+  { ignores: ['dist', 'node_modules', 'eslint.config.js', '**/*.d.ts', '**/*.d.scss.ts'] },
 
   // Base JS rules (applied to all files in scope)
   js.configs.recommended,

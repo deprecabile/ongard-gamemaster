@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { ChatMode, ChatModeType } from '@/contract/chatMode';
+import { ChatMode, type ChatModeType } from '@/contract/chatMode';
 
 import styles from './Campaign.module.scss';
 
 const Campaign = () => {
-  const [mode, setMode] = useState<ChatModeType>(ChatMode.ASK);
+  const [mode, setMode] = useState<ChatModeType>(ChatMode.ACTION);
   const [askText, setAskText] = useState('');
   const [actionText, setActionText] = useState('');
   const [storyLog, setStoryLog] = useState('');
@@ -26,13 +26,17 @@ const Campaign = () => {
         <div className={styles.toggle}>
           <button
             className={`${styles.toggleBtn} ${mode === ChatMode.ASK ? styles.active : ''}`}
-            onClick={() => setMode(ChatMode.ASK)}
+            onClick={() => {
+              setMode(ChatMode.ASK);
+            }}
           >
             Ask
           </button>
           <button
             className={`${styles.toggleBtn} ${mode === ChatMode.ACTION ? styles.active : ''}`}
-            onClick={() => setMode(ChatMode.ACTION)}
+            onClick={() => {
+              setMode(ChatMode.ACTION);
+            }}
           >
             Action
           </button>
@@ -44,7 +48,9 @@ const Campaign = () => {
             mode === ChatMode.ASK ? 'Fai una domanda al GM...' : 'Descrivi la tua azione...'
           }
           value={currentText}
-          onChange={(e) => setCurrentText(e.target.value)}
+          onChange={(e) => {
+            setCurrentText(e.target.value);
+          }}
         />
 
         <button className={styles.sendButton} onClick={handleSend} disabled={!currentText.trim()}>
@@ -61,9 +67,11 @@ const Campaign = () => {
 
         <textarea
           className={styles.notesArea}
-          placeholder="Appunti..."
+          placeholder='Appunti...'
           value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e) => {
+            setNotes(e.target.value);
+          }}
         />
       </div>
     </div>
