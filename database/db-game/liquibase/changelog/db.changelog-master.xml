@@ -8,5 +8,7 @@
     <!-- Include all changelog files in order -->
     <include file="changelog/20260228_001_initial_schema.xml" relativeToChangelogFile="false"/>
 	<include file="changelog/20260228_002_initial_config.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_001_create_cfg_race.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_002_insert_races.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

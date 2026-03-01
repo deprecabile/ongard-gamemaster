@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <!-- Changeset 1: Create cfg_race table -->
+    <changeSet id="001-create-cfg-race-table" author="devops">
+        <comment>Create cfg_race table for playable race configuration</comment>
+
+        <sql>
+            CREATE TABLE cfg_race (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            code TEXT NOT NULL,
+            name TEXT NOT NULL,
+            description TEXT NOT NULL,
+            attributes JSONB NOT NULL,
+            CONSTRAINT pk_cfg_race PRIMARY KEY (id),
+            CONSTRAINT uq_cfg_race_code UNIQUE (code)
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS cfg_race;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
