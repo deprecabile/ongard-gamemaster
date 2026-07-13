@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <!-- Include all changelog files in order -->
+    <include file="changelog/20260228_001_initial_schema.xml" relativeToChangelogFile="false"/>
+	<include file="changelog/20260228_002_initial_config.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_001_create_cfg_race.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_002_insert_races.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260301_003_create_player_character.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260302_001_create_campaign_tables.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260310_001_create_advisor_log_table.xml" relativeToChangelogFile="false"/>
+    <include file="changelog/20260311_001_create_campaign_notes.xml" relativeToChangelogFile="false"/>
+
+</databaseChangeLog>

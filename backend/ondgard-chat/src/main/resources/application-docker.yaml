@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: ondgard-chat
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres-game:5432/db-game}
+    username: ${SPRING_DATASOURCE_USERNAME:ms_usr}
+    password: ${SPRING_DATASOURCE_PASSWORD:ms_usr_password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  # Redis (Docker service name)
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+server:
+  port: 8081
+
+# --- AI Configuration (solo URL override — options ereditate dal file base) ---
+ondgard:
+  account:
+    url: ${ONDGARD_ACCOUNT_URL:http://ondgard-account:8082}
+  ai:
+    ollama-gpu:
+      base-url: http://ollama-gpu:11434
+    ollama-cpu:
+      base-url: http://ollama-cpu:11434
+
+logging:
+  level:
+    com.ondgard: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: ERROR

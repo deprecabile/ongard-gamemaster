@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="001-create-campaign-table" author="devops">
+        <comment>Create campaign table (1:1 shared PK with player_character)</comment>
+
+        <sql>
+            CREATE TABLE campaign (
+            character_id BIGINT NOT NULL,
+            narrative_summary TEXT,
+            summary_version INT NOT NULL DEFAULT 0,
+            turn_count INT NOT NULL DEFAULT 0,
+            last_summary_at_turn INT NOT NULL DEFAULT 0,
+            current_location TEXT,
+            game_date TEXT,
+            game_time TEXT,
+            meteo TEXT,
+            temperature TEXT,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            updated TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_campaign PRIMARY KEY (character_id),
+            CONSTRAINT fk_campaign_player_character FOREIGN KEY (character_id)
+            REFERENCES player_character (id) ON DELETE CASCADE
+            );
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS campaign;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="002-create-adventure-log-table" author="devops">
+        <comment>Create adventure_log table for chronological game history</comment>
+
+        <sql>
+            CREATE TABLE adventure_log (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            campaign_id BIGINT NOT NULL,
+            role TEXT NOT NULL,
+            content TEXT NOT NULL,
+            turn_number INT NOT NULL,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_adventure_log PRIMARY KEY (id),
+            CONSTRAINT fk_adventure_log_campaign FOREIGN KEY (campaign_id)
+            REFERENCES campaign (character_id) ON DELETE CASCADE
+            );
+            CREATE INDEX idx_adventure_log_campaign_turn ON adventure_log (campaign_id, turn_number);
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS adventure_log;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="003-create-player-inventory-table" author="devops">
+        <comment>Create player_inventory table for versioned JSONB inventory snapshots</comment>
+
+        <sql>
+            CREATE TABLE player_inventory (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            campaign_id BIGINT NOT NULL,
+            version INT NOT NULL,
+            turn_number INT NOT NULL,
+            inventory JSONB NOT NULL,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_player_inventory PRIMARY KEY (id),
+            CONSTRAINT fk_player_inventory_campaign FOREIGN KEY (campaign_id)
+            REFERENCES campaign (character_id) ON DELETE CASCADE
+            );
+            CREATE INDEX idx_player_inventory_campaign_version ON player_inventory (campaign_id, version);
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS player_inventory;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="004-create-campaign-questlog-table" author="devops">
+        <comment>Create campaign_questlog table for markdown quest snapshots</comment>
+
+        <sql>
+            CREATE TABLE campaign_questlog (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            campaign_id BIGINT NOT NULL,
+            turn_number INT NOT NULL,
+            quest_active TEXT,
+            quest_completed TEXT,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_campaign_questlog PRIMARY KEY (id),
+            CONSTRAINT fk_campaign_questlog_campaign FOREIGN KEY (campaign_id)
+            REFERENCES campaign (character_id) ON DELETE CASCADE
+            );
+            CREATE INDEX idx_campaign_questlog_campaign_turn ON campaign_questlog (campaign_id, turn_number);
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS campaign_questlog;</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

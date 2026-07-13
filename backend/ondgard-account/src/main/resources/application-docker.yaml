@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres-account:5432/db-account}
+    username: ${SPRING_DATASOURCE_USERNAME:ms_usr}
+    password: ${SPRING_DATASOURCE_PASSWORD:ms_usr_password}
+
+logging:
+  level:
+    com.ondgard: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: ERROR

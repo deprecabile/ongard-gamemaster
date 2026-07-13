@@ -1,0 +1,351 @@
+.page {
+  display: flex;
+  gap: $spacing-md;
+  height: calc(100vh - $header-height - 2 * $spacing-xl);
+}
+
+// ─── Main area (header + columns) ───────────────────────────
+.mainArea {
+  flex: 1;
+  min-width: 0;
+  @include flex-col;
+  gap: $spacing-md;
+}
+
+.tokenWarning {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+  border: 1px solid var(--color-accent);
+  border-radius: $radius-sm;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tokenBlocked {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-error) 15%, transparent);
+  border: 1px solid var(--color-error);
+  border-radius: $radius-sm;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.columns {
+  display: flex;
+  gap: $spacing-md;
+  flex: 1;
+  min-height: 0;
+}
+
+// ─── Shared panel base ──────────────────────────────────────
+%panel {
+  @include flex-col;
+  gap: $spacing-md;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+}
+
+// ─── Left panel (chat input / notes / quest log) ────────────
+.panelLeft {
+  @extend %panel;
+  flex: 0 0 33.333%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.toggle {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: $spacing-sm $spacing-md;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+
+  &:hover:not(.active) {
+    color: var(--color-text);
+  }
+
+  &.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+}
+
+.chatInput {
+  flex: 1;
+  min-height: 60px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  resize: none;
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.chatInputCompact {
+  flex: 0 0 auto;
+  min-height: 40px;
+  max-height: 80px;
+}
+
+.sendButton {
+  padding: $spacing-sm $spacing-lg;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: $radius-sm;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--transition-fast),
+    opacity var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Resize handle ──────────────────────────────────────────
+.resizeHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12px;
+  cursor: row-resize;
+  flex-shrink: 0;
+  margin: -$spacing-sm 0;
+
+  &:hover .resizeGrip {
+    background: var(--color-accent);
+  }
+}
+
+.resizeGrip {
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+// ─── Quest log section ──────────────────────────────────────
+.questLogSection {
+  @include flex-col;
+  flex-shrink: 0;
+  min-height: 0;
+  gap: $spacing-sm;
+
+  &.collapsed {
+    height: auto !important;
+  }
+}
+
+.questLogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.questLogTitle {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.collapseBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: $spacing-xs;
+  line-height: 1;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+// ─── Notes (left panel, Notes tab) ──────────────────────────
+.notesTitle {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.notesWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.notesArea {
+  flex: 1;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  resize: none;
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.notesSaved,
+.notesUnsaved {
+  position: absolute;
+  bottom: $spacing-sm;
+  right: $spacing-sm;
+  font-size: 0.875rem;
+  font-weight: 600;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.notesSaved {
+  color: var(--color-success);
+}
+
+.notesUnsaved {
+  color: var(--color-text-muted);
+}
+
+// ─── Center panel (story output) ────────────────────────────
+.panelCenter {
+  @extend %panel;
+  flex: 1;
+  min-width: 0;
+}
+
+.storyOutput {
+  flex: 1;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg);
+    border-radius: $radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: var(--color-text-muted);
+    }
+  }
+
+  :global(.wmde-markdown) {
+    background: transparent !important;
+    color: var(--color-text) !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.9375rem !important;
+  }
+}
+
+.storyEntry {
+  &:first-child .storySeparator {
+    margin-top: 0;
+  }
+}
+
+.storySeparator {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-sm;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+}
+
+.storyAuthor {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.storyContent {
+  line-height: 1.6;
+}
+
+// ─── Right panel (inventory + status) ───────────────────────
+.panelRight {
+  @extend %panel;
+  width: 250px;
+  flex-shrink: 0;
+}

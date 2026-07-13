@@ -1,0 +1,390 @@
+services:
+  # PostgreSQL Database Service - Game
+  postgres-game:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    build:
+      context: ./database/db-game
+      dockerfile: Dockerfile
+    image: ondgard-postgres-game
+    container_name: ondgard-postgres-game
+    environment:
+      POSTGRES_DB: db-game
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-game-data:/var/lib/postgresql
+    networks:
+      - ondgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d db-game" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # PostgreSQL Database Service - Auth
+  postgres-auth:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    build:
+      context: ./database/db-auth
+      dockerfile: Dockerfile
+    image: ondgard-postgres-auth
+    container_name: ondgard-postgres-auth
+    environment:
+      POSTGRES_DB: db-auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-auth-data:/var/lib/postgresql
+    networks:
+      - ondgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d db-auth" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # PostgreSQL Database Service - Account
+  postgres-account:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    build:
+      context: ./database/db-account
+      dockerfile: Dockerfile
+    image: ondgard-postgres-account
+    container_name: ondgard-postgres-account
+    environment:
+      POSTGRES_DB: db-account
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres-account-data:/var/lib/postgresql
+    networks:
+      - ondgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d db-account" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Liquibase Migration Service - Game
+  liquibase-game:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    image: liquibase/liquibase:4.27
+    container_name: ondgard-liquibase-game
+    depends_on:
+      postgres-game:
+        condition: service_healthy
+    volumes:
+      - ./database/db-game/liquibase/changelog:/liquibase/changelog
+    networks:
+      - ondgard-network
+    command: >
+      --url=jdbc:postgresql://postgres-game:5432/db-game?currentSchema=game --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver update
+    restart: "no"
+
+  # Liquibase Migration Service - Auth
+  liquibase-auth:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    image: liquibase/liquibase:4.27
+    container_name: ondgard-liquibase-auth
+    depends_on:
+      postgres-auth:
+        condition: service_healthy
+    volumes:
+      - ./database/db-auth/liquibase/changelog:/liquibase/changelog
+    networks:
+      - ondgard-network
+    command: >
+      --url=jdbc:postgresql://postgres-auth:5432/db-auth?currentSchema=auth --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver --contexts=dev update
+    restart: "no"
+
+  # Liquibase Migration Service - Account
+  liquibase-account:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    image: liquibase/liquibase:4.27
+    container_name: ondgard-liquibase-account
+    depends_on:
+      postgres-account:
+        condition: service_healthy
+    volumes:
+      - ./database/db-account/liquibase/changelog:/liquibase/changelog
+    networks:
+      - ondgard-network
+    command: >
+      --url=jdbc:postgresql://postgres-account:5432/db-account?currentSchema=account --changeLogFile=changelog/db.changelog-master.xml --username=postgres --password=postgres --driver=org.postgresql.Driver update
+    restart: "no"
+
+  # Ollama GPU — Deterministic validation LLM (VitoF/llama-3.1-8b-italian)
+  ollama-gpu:
+    profiles: [ "llm" ]
+    image: ondgard-ollama-gpu
+    container_name: ondgard-ollama-gpu
+    ports:
+      - "11434:11434"
+    networks:
+      - ondgard-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+    healthcheck:
+      test: [ "CMD-SHELL", "[ -f /tmp/.hc_start ] || date +%s > /tmp/.hc_start; [ $(($(date +%s) - $(cat /tmp/.hc_start))) -gt 180 ] && exit 0 || ollama list" ]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  # Ollama CPU — Deterministic validation + embeddings (qwen3:4b, qwen3-embedding)
+  ollama-cpu:
+    profiles: [ "llm" ]
+    image: ondgard-ollama-cpu
+    container_name: ondgard-ollama-cpu
+    ports:
+      - "11435:11434"
+    networks:
+      - ondgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "[ -f /tmp/.hc_start ] || date +%s > /tmp/.hc_start; [ $(($(date +%s) - $(cat /tmp/.hc_start))) -gt 180 ] && exit 0 || ollama list" ]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  # Redis Stack — Pub/Sub, caching, RediSearch + RedisJSON for vector store
+  redis:
+    profiles: [ "db", "spring", "backend", "fullstack" ]
+    image: redis/redis-stack-server:latest
+    container_name: ondgard-redis
+    environment:
+      REDIS_ARGS: "--notify-keyspace-events Ex"
+    ports:
+      - "6379:6379"
+    networks:
+      - ondgard-network
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # Ollama Warmup Service — probes Ollama instances (fail-soft) and publishes RAG signal
+  ondgard-warmup:
+    profiles: [ "llm" ]
+    build:
+      context: ./backend
+      dockerfile: ondgard-warmup/Dockerfile
+      network: host
+    image: ondgard-warmup
+    container_name: ondgard-warmup
+    depends_on:
+      ondgard-chat:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - ondgard-network
+    restart: "no"
+
+  # RAG init trigger — publishes event to start RAG indexing
+  rag-init-trigger:
+    profiles: [ "rag-init", "backend", "fullstack" ]
+    image: redis:8-alpine
+    container_name: ondgard-rag-init-trigger
+    depends_on:
+      ondgard-chat:
+        condition: service_started
+    entrypoint:
+      - sh
+      - -c
+      - |
+        for i in $$(seq 1 30); do
+          subs=$$(redis-cli -h redis PUBLISH ondgard:rag:init ok)
+          if [ "$$subs" -gt 0 ]; then
+            echo "Published to $$subs subscriber(s)"
+            exit 0
+          fi
+          echo "No subscribers yet, retrying in 2s... ($$i/30)"
+          sleep 2
+        done
+        echo "No subscribers after 30 attempts — hash may already match"
+    tmpfs:
+      - /data
+    networks:
+      - ondgard-network
+    restart: "no"
+
+  # Ondgard Auth Microservice
+  ondgard-auth:
+    profiles: [ "spring", "backend", "fullstack" ]
+    build:
+      context: ./backend
+      dockerfile: ondgard-auth/Dockerfile
+      network: host
+    image: ondgard-auth
+    container_name: ondgard-auth
+    depends_on:
+      liquibase-auth:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWT_SECRET: ${JWT_SECRET:-dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+    ports:
+      - "8089:8089"
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+  # API Gateway
+  gateway:
+    profiles: [ "spring", "backend", "fullstack" ]
+    build:
+      context: ./backend
+      dockerfile: gateway/Dockerfile
+      network: host
+    image: ondgard-gateway
+    container_name: ondgard-gateway
+    depends_on:
+      ondgard-auth:
+        condition: service_started
+      redis:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWT_SECRET: ${JWT_SECRET:-dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+    ports:
+      - "8080:8080"
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+  # Ondgard Account Microservice
+  ondgard-account:
+    profiles: [ "spring", "backend", "fullstack" ]
+    build:
+      context: ./backend
+      dockerfile: ondgard-account/Dockerfile
+      network: host
+    image: ondgard-account
+    container_name: ondgard-account
+    depends_on:
+      liquibase-account:
+        condition: service_completed_successfully
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-account:5432/db-account
+    ports:
+      - "8082:8082"
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+  # Ondgard Mail Microservice
+  ondgard-mail:
+    profiles: [ "spring", "backend", "fullstack" ]
+    build:
+      context: ./backend
+      dockerfile: ondgard-mail/Dockerfile
+      network: host
+    image: ondgard-mail
+    container_name: ondgard-mail
+    environment:
+      SPRING_PROFILES_ACTIVE: docker,private
+    ports:
+      - "8083:8083"
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+  # Ondgard Chat Microservice
+  ondgard-chat:
+    profiles: [ "spring", "backend", "fullstack" ]
+    build:
+      context: ./backend
+      dockerfile: ondgard-chat/Dockerfile
+      network: host
+    image: ondgard-chat
+    container_name: ondgard-chat
+    depends_on:
+      liquibase-game:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker,gemini
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-game:5432/db-game
+    ports:
+      - "8081:8081"
+    networks:
+      - ondgard-network
+    stop_grace_period: 30s
+    restart: unless-stopped
+
+  # Frontend web server
+  frontend:
+    profiles: [ "frontend", "fullstack" ]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      network: host
+    image: ondgard-frontend
+    container_name: ondgard-frontend
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+  # Reverse proxy — Caddy (HTTPS automatico + rate limiting)
+  proxy:
+    profiles: [ "frontend", "fullstack" ]
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: ondgard-proxy
+    container_name: ondgard-proxy
+    depends_on:
+      - frontend
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:-localhost}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./proxy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - ondgard-network
+    restart: unless-stopped
+
+# Volumes
+volumes:
+  postgres-game-data:
+    driver: local
+  postgres-auth-data:
+    driver: local
+  postgres-account-data:
+    driver: local
+  caddy-data:
+    driver: local
+  caddy-config:
+    driver: local
+  redis-data:
+    driver: local
+
+# Networks
+networks:
+  ondgard-network:
+    driver: bridge

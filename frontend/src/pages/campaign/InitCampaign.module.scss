@@ -1,0 +1,192 @@
+.page {
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: $spacing-sm;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.section {
+  padding: $spacing-xl;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  @include flex-col;
+  gap: $spacing-md;
+}
+
+.sectionTitleRow {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.btnGenerate {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-lg;
+  padding: $spacing-xs $spacing-sm;
+  background: transparent;
+  color: #d4a843;
+  border: 1px solid #d4a843;
+  border-radius: $radius-sm;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    color: #f0c55b;
+    border-color: #f0c55b;
+    box-shadow: 0 0 8px rgb(212 168 67 / 40%);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.btnRegenerate {
+  padding: $spacing-xs $spacing-sm;
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: $radius-sm;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.select,
+.textarea {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a89880' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.raceDescription {
+  padding: $spacing-sm $spacing-md;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.restoreOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  background: rgb(0 0 0 / 70%);
+  z-index: 2000;
+  color: var(--color-text);
+  font-size: 1.125rem;
+}
+
+.restoreSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.advisorToggle {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  z-index: 999;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 40%);
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}

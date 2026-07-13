@@ -1,0 +1,42 @@
+{$SITE_DOMAIN} {
+
+    rate_limit {
+        zone register {
+            match {
+                path /api/auth/register
+                method POST
+            }
+            key {remote_host}
+            events 5
+            window 1h
+        }
+
+        zone resend {
+            match {
+                path /api/auth/resend-confirmation
+                method POST
+            }
+            key {remote_host}
+            events 3
+            window 1h
+        }
+
+        zone forgot_password {
+            match {
+                path /api/auth/forgot-password
+                method POST
+            }
+            key {remote_host}
+            events 3
+            window 1h
+        }
+    }
+
+    handle /api/* {
+        reverse_proxy gateway:8080
+    }
+
+    handle {
+        reverse_proxy frontend:80
+    }
+}

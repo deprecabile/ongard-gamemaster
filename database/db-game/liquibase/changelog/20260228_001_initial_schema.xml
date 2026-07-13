@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <!-- Changeset 1: Create game_user table -->
+    <changeSet id="001-create-game-user-table" author="devops">
+        <comment>Create game_user table with user_hash and username</comment>
+
+        <sql>
+            CREATE TABLE game_user (
+                id BIGINT GENERATED ALWAYS AS IDENTITY,
+                user_hash UUID NOT NULL,
+                created TIMESTAMP WITH TIME ZONE NOT NULL,
+                username TEXT NOT NULL,
+                CONSTRAINT pk_game_user PRIMARY KEY (id),
+                CONSTRAINT uq_game_user_hash UNIQUE (user_hash),
+                CONSTRAINT uq_game_user_username UNIQUE (username)
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS game_user;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

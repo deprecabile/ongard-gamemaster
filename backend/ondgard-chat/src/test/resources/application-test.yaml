@@ -1,0 +1,28 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog/db.changelog-master.xml
+  jpa:
+    show-sql: false
+
+server:
+  shutdown: immediate
+
+ondgard:
+  account:
+    url: http://localhost:0/not-existing-account-service
+  ai:
+    gemini:
+      gm-model: not-existing-model
+      summary-model: not-existing-model
+      inventory-model: not-existing-model
+      quest-model: not-existing-model
+      scene-model: not-existing-model
+      validator-model: not-existing-model
+      rag-query-model: not-existing-model
+      advisor-model: not-existing-model
+      embedding-model: not-existing-model
+    ollama-gpu:
+      base-url: http://localhost:0/not-existing-ollama-gpu
+    ollama-cpu:
+      base-url: http://localhost:0/not-existing-ollama-cpu

@@ -1,0 +1,17 @@
+export const SseProgressCode = {
+  // Turn pipeline
+  GM_WRITING: 'GM_WRITING',
+  GM_INCONSISTENCY: 'GM_INCONSISTENCY',
+  GM_REWRITING: 'GM_REWRITING',
+  VALIDATORS_RUNNING: 'VALIDATORS_RUNNING',
+  UPDATERS_RUNNING: 'UPDATERS_RUNNING',
+  // Campaign init
+  CAMPAIGN_PREPARING: 'CAMPAIGN_PREPARING',
+  INIT_AGENTS: 'INIT_AGENTS',
+  AGENTS_WORKING: 'AGENTS_WORKING',
+  CAMPAIGN_SAVING: 'CAMPAIGN_SAVING',
+  // Advisor
+  ADVISOR_THINKING: 'ADVISOR_THINKING',
+} as const;
+
+export type SseProgressCodeValue = (typeof SseProgressCode)[keyof typeof SseProgressCode];

@@ -1,0 +1,58 @@
+{
+  "characterHash": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+  "currentTurn": 7,
+  "inventory": {
+    "money": 120045,
+    "mount": [
+      {
+        "nome": "Cavallo da guerra",
+        "tipo": "cavalcatura",
+        "stato": "sano",
+        "extra": [
+          {
+            "chiave": "velocita",
+            "valore": "alta"
+          }
+        ]
+      }
+    ],
+    "contenitori": [
+      {
+        "nome": "Zaino",
+        "oggetti": [
+          {
+            "nome": "Spada lunga",
+            "descrizione": "Acciaio elfico temprato",
+            "quantita": 1,
+            "peso": 3.0,
+            "extra": [
+              {
+                "chiave": "danno",
+                "valore": "1d8+2"
+              }
+            ]
+          },
+          {
+            "nome": "Pozione di cura",
+            "descrizione": "Ripristina 2d4+2 HP",
+            "quantita": 3,
+            "peso": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  "questLog": {
+    "turnNumber": 5,
+    "questActive": "Trovare il tempio perduto di Ondgard",
+    "questCompleted": "Salvato il villaggio dai banditi"
+  },
+  "scene": {
+    "currentLocation": "Foresta di Mirwood",
+    "gameDate": "12 Solara 1247",
+    "gameTime": "Tramonto",
+    "meteo": "Nebbia fitta",
+    "temperature": "Fresco"
+  },
+  "lastUpdate": "2026-03-04T14:30:00"
+}

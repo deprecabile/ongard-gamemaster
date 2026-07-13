@@ -1,0 +1,324 @@
+{
+  "common": {
+    "login": "Login",
+    "register": "Registrati",
+    "continue": "Continua",
+    "start": "Inizia",
+    "delete": "Elimina",
+    "save": "Salva",
+    "loading": "Caricamento...",
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "auth": {
+    "or": "oppure",
+    "googleError": "Accesso con Google non riuscito. Riprova."
+  },
+  "googleModal": {
+    "title": "Completa la Registrazione",
+    "emailInfo": "Registrazione con {{email}}",
+    "chooseUsername": "Scegli un username",
+    "completeRegistration": "Completa Registrazione",
+    "completing": "Completamento..."
+  },
+  "login": {
+    "title": "Accedi",
+    "invalidCredentials": "Username o password non validi",
+    "loggingIn": "Accesso in corso...",
+    "noAccount": "Non hai un account?",
+    "registerLink": "Registrati",
+    "successMessage": "Account creato! Accedi per iniziare la tua avventura.",
+    "accountNotConfirmed": "Attiva il tuo account tramite l'email che ti abbiamo inviato. Non l'hai ricevuta? Controlla nello spam, altrimenti:",
+    "resendLink": "Reinvia email",
+    "resendSending": "Invio in corso...",
+    "resendSuccess": "Email inviata! Controlla la tua casella.",
+    "forgotPassword": "Password dimenticata?"
+  },
+  "forgotPassword": {
+    "title": "Password dimenticata?",
+    "description": "Inserisci il tuo indirizzo email e ti invieremo un link per reimpostare la password.",
+    "sendButton": "Invia link di reset",
+    "sending": "Invio in corso...",
+    "success": "Se esiste un account con questa email, ti abbiamo inviato un link per reimpostare la password. Controlla la tua casella.",
+    "loginLink": "Torna al Login"
+  },
+  "resetPassword": {
+    "title": "Reimposta Password",
+    "newPasswordLabel": "Nuova password",
+    "confirmPasswordLabel": "Conferma password",
+    "resetButton": "Reimposta password",
+    "resetting": "Reimpostazione...",
+    "success": "Password reimpostata con successo! Ora puoi accedere.",
+    "passwordsDontMatch": "Le password non corrispondono",
+    "invalidToken": "Questo link è scaduto o non è valido.",
+    "noToken": "Nessun token di reset trovato.",
+    "genericError": "Si è verificato un errore. Riprova più tardi.",
+    "loginLink": "Torna al Login"
+  },
+  "register": {
+    "title": "Registrati",
+    "usernameTooShort": "Lo username deve avere almeno 3 caratteri",
+    "emailInvalid": "Inserisci un indirizzo email valido",
+    "passwordRequirements": "La password deve contenere almeno una lettera e un numero",
+    "checking": "Verifica in corso...",
+    "usernameAvailable": "Username disponibile",
+    "usernameTaken": "Username già in uso",
+    "creatingAccount": "Creazione account...",
+    "createAccount": "Crea Account",
+    "accountCreated": "Ti abbiamo inviato un'email di conferma. Controlla la tua casella per attivare l'account.",
+    "usernameOrEmailTaken": "Username o email già in uso",
+    "invalidInput": "Username, email o password non validi. Verifica i dati inseriti.",
+    "registrationFailed": "Si è verificato un errore sul server. Riprova più tardi.",
+    "hasAccount": "Hai già un account?",
+    "loginLink": "Accedi",
+    "passwordRuleMinChars": "Almeno {{min}} caratteri",
+    "passwordRuleLetter": "Almeno una lettera",
+    "passwordRuleNumber": "Almeno un numero"
+  },
+  "confirm": {
+    "verifying": "Verifica dell'account in corso...",
+    "success": "Account confermato! Ora puoi accedere.",
+    "error": "Questo link è scaduto o non è valido.",
+    "loginLink": "Vai al Login",
+    "noToken": "Nessun token di conferma trovato."
+  },
+  "landing": {
+    "subtitle": "Il tuo Game Master guidato dall'Intelligenza Artificiale",
+    "cta": "Inizia l'Avventura",
+    "featureGmTitle": "Game Master IA",
+    "featureGmDesc": "Un narratore intelligente che crea avventure uniche",
+    "featureWorldTitle": "Mondo Vivente",
+    "featureWorldDesc": "Un mondo persistente che evolve con le tue scelte",
+    "featureStoryTitle": "Storie Epiche",
+    "featureStoryDesc": "Trame ramificate plasmate dalle tue decisioni",
+    "readyTitle": "Pronto per iniziare?"
+  },
+  "dashboard": {
+    "greeting": "Benvenuto, {{username}}",
+    "subtitle": "Il Game Master sta preparando la tua avventura...",
+    "newCampaign": "Nuova Campagna",
+    "newCampaignDesc": "Inizia una nuova avventura epica",
+    "continueCampaign": "Continua Avventura",
+    "continueCampaignDesc": "Riprendi da dove avevi lasciato"
+  },
+  "campaign": {
+    "notesTitle": "Appunti",
+    "notesSaved": "Salvato",
+    "notesUnsaved": "Non salvato",
+    "quests": "Missioni",
+    "expand": "Espandi",
+    "collapse": "Comprimi",
+    "tokenLimitReached": "Hai raggiunto il limite di token. Vai alle impostazioni Account per aumentare i limiti.",
+    "tokenWarning": "Attenzione: hai utilizzato il {{percentage}}% dei token disponibili.",
+    "tokenLimitPlaceholder": "Limite token raggiunto",
+    "askPlaceholder": "Fai una domanda al GM...",
+    "actionPlaceholder": "Descrivi la tua azione...",
+    "blocked": "Bloccato",
+    "waiting": "Attendi...",
+    "send": "Invia",
+    "defaultCharacterName": "Personaggio",
+    "errorMessage": "**Errore [{{code}}]:** {{description}}",
+    "tabAsk": "Chiedi",
+    "tabAction": "Azione",
+    "tabNotes": "Appunti",
+    "askEmptyState": "Chiedi al Game Master qualsiasi cosa sul mondo, le regole o la tua situazione. Le tue domande non influenzeranno la storia.",
+    "askTurnLabel": "Turno {{turn}}",
+    "askAdvisor": "Consigliere",
+    "askYou": "Tu"
+  },
+  "initCampaign": {
+    "title": "Nuova Campagna",
+    "createCharacter": "Crea il tuo personaggio",
+    "race": "Razza",
+    "selectRace": "Seleziona una razza",
+    "name": "Nome",
+    "namePlaceholder": "Il nome del tuo personaggio",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Descrivi il tuo personaggio...",
+    "initialContext": "Contesto iniziale",
+    "contextLabel": "Descrivi il contesto di partenza (Markdown supportato)",
+    "contextPlaceholder": "Dove inizia la tua avventura? Qual è la situazione di partenza? Puoi usare il formato Markdown.",
+    "checkingService": "Verifica disponibilità del servizio...",
+    "creatingCharacter": "Creazione del personaggio...",
+    "initializingCampaign": "Inizializzazione della campagna...",
+    "tokenLimitReached": "Hai raggiunto il limite di token. Vai alle impostazioni Account per aumentare i limiti.",
+    "errorGeneric": "Si è verificato un errore. Riprova più tardi.",
+    "creating": "Creazione in corso...",
+    "startAdventure": "Inizia l'avventura",
+    "helpMeCreate": "Aiutami a creare",
+    "regenerateCharacter": "Rigenera personaggio",
+    "regenerateScene": "Rigenera scena",
+    "generatingContent": "Generazione in corso...",
+    "restoring": "Ripristino sessione..."
+  },
+  "setupAdvisor": {
+    "toggleTitle": "Chatta con il consigliere",
+    "title": "Consigliere Campagna",
+    "emptyState": "Chiedi al consigliere del mondo di Ondgard, delle razze, della lore, o aiuto per creare il personaggio e la situazione iniziale.",
+    "placeholder": "Chiedi al consigliere...",
+    "send": "Invia",
+    "you": "Tu",
+    "advisor": "Consigliere",
+    "clearConversation": "Cancella conversazione",
+    "errorGeneric": "Si è verificato un errore. Riprova."
+  },
+  "archetypeModal": {
+    "title": "Scegli un archetipo",
+    "select": "Scegli",
+    "otherOptions": "Altre opzioni",
+    "loadError": "Impossibile caricare gli archetipi. Riprova.",
+    "retry": "Riprova"
+  },
+  "campaignHeader": {
+    "turn": "Turno",
+    "location": "Luogo",
+    "date": "Data",
+    "weather": "Meteo"
+  },
+  "questLog": {
+    "completed": "Completate",
+    "active": "Attive",
+    "empty": "Nessuna missione disponibile."
+  },
+  "inventory": {
+    "loading": "Caricamento inventario...",
+    "empty": "Nessun inventario disponibile",
+    "currency": "Valuta",
+    "denante": "denanti",
+    "transport": "Trasporto",
+    "containers": "Contenitori"
+  },
+  "loadCampaign": {
+    "title": "Campagne",
+    "subtitle": "Riprendi da dove avevi lasciato",
+    "loadingCampaigns": "Caricamento campagne...",
+    "loadError": "Errore nel caricamento delle campagne",
+    "emptyCampaigns": "Nessuna campagna trovata.",
+    "startNewAdventure": "Inizia una nuova avventura",
+    "confirmDelete": "Eliminare la campagna di {{name}}? Questa azione è irreversibile.",
+    "deleteError": "Errore durante l'eliminazione",
+    "turnLabel": "Turno {{turn}}",
+    "narrative": "Narrativa",
+    "noNarrative": "Nessun riepilogo disponibile.",
+    "activeQuests": "Missioni Attive",
+    "noActiveQuests": "Nessuna missione attiva",
+    "lastSave": "Ultimo Salvataggio",
+    "selectCampaign": "Seleziona una campagna"
+  },
+  "account": {
+    "title": "Account",
+    "infoBanner": "I limiti mensili dei token si resettano automaticamente il 1° di ogni mese.",
+    "tokenLimits": "Limiti Token",
+    "monthlyLimit": "Limite Mensile",
+    "totalLimit": "Limite Totale",
+    "monthlyLimitMustBePositive": "Il limite mensile deve essere maggiore di 0",
+    "totalLimitMustBePositive": "Il limite totale deve essere maggiore di 0",
+    "monthlyCannotExceedTotal": "Il limite mensile non può essere superiore al limite totale",
+    "limitsUpdated": "Limiti aggiornati con successo",
+    "saveError": "Errore durante il salvataggio. Riprova.",
+    "saving": "Salvataggio...",
+    "saveLimits": "Salva Limiti",
+    "tokenUsage": "Utilizzo Token",
+    "currentMonth": "Mese Corrente",
+    "total": "Totale",
+    "usageByCharacter": "Utilizzo per Personaggio",
+    "characterColumn": "Personaggio",
+    "monthTokensColumn": "Token Mese",
+    "totalTokensColumn": "Token Totali"
+  },
+  "serviceOverlay": {
+    "title": "Il mondo di Ondgard si sta materializzando...",
+    "subtitle": "Il servizio si sta preparando. Attendi qualche istante."
+  },
+  "language": {
+    "en": "Inglese",
+    "it": "Italiano",
+    "es": "Spagnolo"
+  },
+  "sse": {
+    "GM_WRITING": [
+      "Il Game Master sta scrivendo...",
+      "La penna del destino si muove...",
+      "Il narratore compone la scena..."
+    ],
+    "GM_INCONSISTENCY": "Incongruenza rilevata! Il GM sta correggendo...",
+    "GM_REWRITING": [
+      "Il Game Master sta riscrivendo...",
+      "La storia viene riscritta..."
+    ],
+    "VALIDATORS_RUNNING": [
+      "I saggi stanno analizzando la scena...",
+      "I revisori controllano la coerenza..."
+    ],
+    "UPDATERS_RUNNING": [
+      "Aggiornamento dell'inventario...",
+      "Le tue scorte vengono aggiornate..."
+    ],
+    "CAMPAIGN_PREPARING": "Preparazione della campagna...",
+    "INIT_AGENTS": "Inizializzazione dell'inventario e del diario...",
+    "AGENTS_WORKING": [
+      "Gli agenti stanno preparando il mondo...",
+      "Il mondo sta prendendo forma..."
+    ],
+    "CAMPAIGN_SAVING": "Salvataggio della campagna...",
+    "ADVISOR_THINKING": [
+      "Il consigliere sta riflettendo...",
+      "Il saggio consulta gli antichi tomi...",
+      "La saggezza viene raccolta..."
+    ],
+    "SETUP_SUMMARIZING": "Riassumendo la conversazione...",
+    "SETUP_GENERATING_CHARACTER": [
+      "Il tuo personaggio prende forma...",
+      "La penna plasma un nuovo eroe..."
+    ],
+    "SETUP_PICKING_NAME": "Scelta razza e nome...",
+    "SETUP_GENERATING_SCENE": [
+      "Creazione della scena iniziale...",
+      "Il mondo si dispiega davanti a te..."
+    ]
+  },
+  "races": {
+    "TRO": {
+      "name": "Troll",
+      "description": "Imponenti e rigenerativi, i troll sono creature antiche legate alla terra. La loro pelle è dura come la roccia."
+    },
+    "UMN": {
+      "name": "Umano",
+      "description": "Versatili e ambiziosi, gli umani sono la razza più diffusa. Si adattano a qualsiasi ambiente e costruiscono grandi civiltà."
+    },
+    "XER": {
+      "name": "Xeroba",
+      "description": "Misteriosi nomadi delle savane, gli Xeroba possiedono una connessione unica con gli spiriti ancestrali e la terra selvaggia. Il loro aspetto felino li rende misteriosi ed imperscrutabili."
+    },
+    "ORC": {
+      "name": "Orco",
+      "description": "Forti e fieri, gli orchi seguono un rigido codice d'onore tribale. La loro resistenza fisica è leggendaria."
+    },
+    "NAN": {
+      "name": "Nano",
+      "description": "Robusti e tenaci, i nani sono abili artigiani e minatori. Vivono nelle profondità delle montagne, conservano rancore per sempre e custodiscono antiche forge."
+    },
+    "ELF": {
+      "name": "Elfo",
+      "description": "Aggraziati e longevi, gli elfi vivono in armonia con la natura. La loro saggezza millenaria li rende maestri nelle arti arcane."
+    },
+    "RET": {
+      "name": "Rettiliano",
+      "description": "A sangue freddo e calcolatori, i rettiliani sono antichi quanto il mondo stesso."
+    },
+    "GOB": {
+      "name": "Goblin",
+      "description": "Astuti e numerosi, i goblin compensano la loro piccola taglia con furbizia e ingegnosità. Maestri di trappole e imboscate."
+    },
+    "GNO": {
+      "name": "Gnomo",
+      "description": "Curiosi e inventivi, gli gnomi sono piccoli di statura ma grandi di ingegno. Amano i meccanismi e le illusioni."
+    }
+  },
+  "relativeDate": {
+    "now": "adesso",
+    "minutesAgo": "{{count}} min fa",
+    "hoursAgo": "{{count}} ore fa",
+    "daysAgo": "{{count}} giorni fa"
+  }
+}

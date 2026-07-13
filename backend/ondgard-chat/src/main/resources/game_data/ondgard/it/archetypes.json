@@ -1,0 +1,311 @@
+[
+  {
+    "code": "SHIPWRECK_AMNESIA",
+    "description": "Sopravvissuto a un evento catastrofico che gli ha causato un'amnesia totale. Non sa chi è né come ci è arrivato.",
+    "theme": "L'evento catastrofico è imprecisato (naufragio, attacco, anomalia magica). Creare uno scenario di risveglio disorientante avvolto nel mistero e porre forte accento sull'unico oggetto enigmatico (una chiave, un dipinto, un medaglione... inventa) che possiede come chiave per il suo passato.",
+    "inventoryHints": [
+      "oggetto personale enigmatico",
+      "vestiti rovinati dall'acqua salata",
+      "pochi Denanti"
+    ]
+  },
+  {
+    "code": "TROPICAL_PIRATE",
+    "description": "Corsaro dei mari caldi e predone delle rotte dell'Est, sopravvissuto a una vita di illegalità cercando di forzare il ferreo monopolio navale della Lega di Ostria.",
+    "theme": "Inventare un incidente di rottura recente legato ai grandi pericoli del mare di Ondgard: un assalto fallito a un mercantile di Ostria, una nave finita in pezzi durante un'imprevedibile Mareggiata di Shinosa, o un ammutinamento per la spartizione del bottino. Ha perso la nave e la sua ciurma ed è costretto a ripartire da solo, forse braccato da cacciatori di taglie della Lega.",
+    "inventoryHints": [
+      "sciabola curva da abbordaggio",
+      "bussola di precisione gnomica (rubata a Ostria)",
+      "bottiglia di rum scadente",
+      "qualche Denante"
+    ]
+  },
+  {
+    "code": "CITY_INVESTIGATOR",
+    "description": "Investigatore cinico e brillante che opera nei bassifondi urbani, specializzato in casi sporchi o ignorati dalle autorità.",
+    "theme": "Inventare i dettagli di un'indagine in corso finita male: un testimone chiave ucciso, un datore di lavoro scomparso, intrighi politici, clan di contrabbandieri o una scoperta scomoda che minaccia la vita stessa dell'investigatore all'inizio della scena.",
+    "inventoryHints": [
+      "taccuino logoro con appunti criptici",
+      "pugnale d'acciaio",
+      "mantello impermeabile con cappuccio",
+      "Denanti per le spese"
+    ]
+  },
+  {
+    "code": "BITTER_GUARD",
+    "description": "Tutore dell'ordine decaduto, disilluso e scacciato dal corpo di guardia per aver denunciato superiori corrotti.",
+    "theme": "Calare il personaggio in una scena urbana degradata, enfatizzando il divario tra i suoi vecchi ideali di giustizia e la necessità di sopravvivere nei bassifondi covando vendetta. Può essere ubriacone, separato, dipendente da sostanze stupefacenti, oppure no.",
+    "inventoryHints": [
+      "vecchio distintivo ammaccato",
+      "spada corta d'ordinanza",
+      "lettera di congedo",
+      "pochi Denanti"
+    ]
+  },
+  {
+    "code": "KINGDOM_SOLDIER",
+    "description": "Veterano di guerra indurito dalle battaglie, appartenente a un esercito regolare andato in pezzi dopo una campagna rovinosa.",
+    "theme": "Creare un contesto post-sbandamento (retrovie, campi profughi, strade isolate) e bilanciare la ferrea disciplina marziale del soldato con lo smarrimento per la mancanza di ordini.",
+    "inventoryHints": [
+      "armatura leggera consumata",
+      "lancia regolamentare",
+      "gavetta militare",
+      "soldo arretrato in Denanti"
+    ]
+  },
+  {
+    "code": "ARCTIC_WHALER",
+    "description": "Lavoratore del mare abituato alle latitudini più estreme, al freddo letale e a prede titaniche.",
+    "theme": "Inventare un disastro letale o un presagio oscuro avvenuto durante l'ultima caccia che ha sventrato la baleniera e costretto il personaggio sulla terraferma, inserendo elementi di crudo sopravvivenzialismo e superstizioni.",
+    "inventoryHints": [
+      "arpione da caccia",
+      "pelliccia pesante",
+      "olio di balena",
+      "Denanti guadagnati con l'ultima caccia"
+    ]
+  },
+  {
+    "code": "APPRENTICE_MAGE",
+    "description": "Novizio delle arti arcane, inesperto ma ambizioso, in fuga dopo aver scoperto un segreto terribile del proprio maestro.",
+    "theme": "Trasmettere un senso di paranoia o persecuzione nella scena iniziale, unendolo alla smania del personaggio di decifrare le conoscenze proibite trafugate durante la fuga.",
+    "inventoryHints": [
+      "grimorio incompleto",
+      "componenti alchemiche di base",
+      "tunica da apprendista",
+      "pochi Denanti sottratti"
+    ]
+  },
+  {
+    "code": "WILDERNESS_HUNTER",
+    "description": "Cacciatore solitario profondamente legato all'ambiente selvaggio, insofferente alla società civile.",
+    "theme": "Può essere completamente solitario o aver addomesticato un animale che lo aiuta nella caccia (un cane, un lupo o altro). Inventare una minaccia anomala (bestie pericolose, cacciatori di frodo spietati, un evento magico) che ha brutalmente infranto l'equilibrio del suo territorio, costringendolo a uscire allo scoperto.",
+    "inventoryHints": [
+      "arco lungo",
+      "faretra con frecce",
+      "coltello da caccia",
+      "trappole di corda",
+      "pelli da vendere per Denanti"
+    ]
+  },
+  {
+    "code": "NAVAL_OFFICER",
+    "description": "Ex esponente di alto rango della flotta, sollevato dall'incarico in circostanze controverse o infamanti.",
+    "theme": "La flotta può essere militare o commerciale. Inserire il personaggio in una scena che evidenzi una caduta in disgrazia recente e umiliante, descrivendo il contrasto tra il suo cipiglio di comando altolocato e la miserabile situazione attuale.",
+    "inventoryHints": [
+      "uniforme navale sbiadita",
+      "cannocchiale gnomico",
+      "sciabola da ufficiale",
+      "Denanti risparmiati"
+    ]
+  },
+  {
+    "code": "TRAVELLING_MERCHANT",
+    "description": "Carovaniere scaltro e persuasivo la cui stabilità economica è andata in fumo di colpo.",
+    "theme": "Inventare una rovina repentina (banditi, truffa subita o naufragio del carico) che ha lasciato il mercante con poco più di un campionario base, costretto a rimettersi in gioco unicamente grazie al proprio intelletto e alla parlantina.",
+    "inventoryHints": [
+      "bilancia portatile",
+      "campionario di merci",
+      "mappa delle rotte commerciali",
+      "buona scorta di Denanti"
+    ]
+  },
+  {
+    "code": "WANDERING_BARD",
+    "description": "Artista della strada e manipolatore di emozioni che si guadagna da vivere carpendo segreti e monete in egual misura.",
+    "theme": "Creare un evento pericoloso avvenuto ore prima (un mecenate offeso, un flirt con la persona sbagliata, l'ascolto di una cospirazione) da cui il bardo sta attualmente cercando di fuggire.",
+    "inventoryHints": [
+      "liuto ben tenuto",
+      "quaderno di canzoni",
+      "costume colorato",
+      "Denanti raccolti con le esibizioni"
+    ]
+  },
+  {
+    "code": "STORM_FISHERMAN",
+    "description": "Popolano temprato dalla salsedine, il cui intero sostentamento è stato spazzato via da una forza soverchiante.",
+    "theme": "Il sostentamento perduto può essere la barca o il villaggio. Evitare drammi teatrali e puntare su una scena iniziale radicata nel pragmatismo brutale: il personaggio sta valutando danni, contando i resti e cercando freddamente i mezzi pratici per tirare a campare.",
+    "inventoryHints": [
+      "rete da pesca riparata",
+      "kit da pesca con ami e lenze",
+      "coltello per sfilettare",
+      "amuleto contro le tempeste (superstizione)",
+      "ultimi Denanti"
+    ]
+  },
+  {
+    "code": "GRIEVING_INNKEEPER",
+    "description": "Locandiere, pilastro di una comunità rurale, a cui è stato strappato via tutto da un disastro doloso.",
+    "theme": "Scrivere il movente per cui il locandiere ha abbandonato le sicurezze del focolare per intraprendere un viaggio pericoloso, motivato dalla cocente perdita familiare ed economica e dalla ricerca di chi ha appiccato il fuoco.",
+    "inventoryHints": [
+      "chiave della vecchia locanda",
+      "ricettario di famiglia",
+      "mannaia da macellaio",
+      "Denanti dell'assicurazione"
+    ]
+  },
+  {
+    "code": "ASPIRING_POLITICIAN",
+    "description": "Ambizioso burocrate o diplomatico minore, da sempre relegato ai margini dei veri salotti del potere.",
+    "theme": "Inventare un incidente iniziale improvviso in cui il personaggio si trova tra le mani un'occasione scottante (ha intercettato un segreto di stato, ha trovato i fondi neri di un nobile, gli è stato affidato un incarico suicida \"non ufficiale\"). La situazione attuale costituisce un rischio altissimo per la sua sopravvivenza immediata, ma se giocata bene sarà il perfetto trampolino di lancio per la carriera che ha sempre sognato.",
+    "inventoryHints": [
+      "sigillo di famiglia",
+      "lettere di presentazione",
+      "abiti eleganti",
+      "Denanti per le spese di rappresentanza"
+    ]
+  },
+  {
+    "code": "NOBLE_CONCUBINE",
+    "description": "Una concubina di un nobile, figura un tempo reclusa nei lussi palatini, in fuga dalla corte con segreti che sanno di morte.",
+    "theme": "Calare il personaggio tra insidie popolane a lui sconosciute e spietate, evidenziando il terrore di essere braccato da sicari nobiliari e il peso letale di ciò che ha visto o scoperto a corte.",
+    "inventoryHints": [
+      "gioiello nascosto di valore",
+      "fiala di veleno",
+      "abiti da viaggio discreti",
+      "Denanti sottratti alla corte"
+    ]
+  },
+  {
+    "code": "SOLD_SLAVE",
+    "description": "Individuo marchiato fin da giovanissimo e costretto ai brutali lavori forzati nelle miniere o disboscamenti del regno meridionale di Audrock.",
+    "theme": "Concentrarsi sul trauma fisico e la fuga disperata: il personaggio ha appena superato il confine verso nord, braccato dai segugi dei mercanti di schiavi. Mostrare la sua inesperienza con la libertà e le dinamiche sociali, unita a una ferrea determinazione a non tornare in catene.",
+    "inventoryHints": [
+      "catene spezzate recanti il marchio di Audrock",
+      "vestiti logori",
+      "tozzo di pane secco",
+      "zero Denanti"
+    ]
+  },
+  {
+    "code": "DISINHERITED_NOBLE",
+    "description": "Nobile gettato in mezzo a una strada e privato del proprio cognome dai parenti.",
+    "theme": "La causa della diseredazione sono sopprusi innominabili. Creare un contrasto pungente e tragicomico o drammatico tra l'estrema povertà della scena attuale e i modi altezzosi, i vestiti sporchi ma regali, e l'assoluta incapacità pratica del personaggio di cavarsela senza servitù.",
+    "inventoryHints": [
+      "anello con stemma di famiglia",
+      "lettera di diseredamento",
+      "abiti un tempo pregiati",
+      "ultimi Denanti"
+    ]
+  },
+  {
+    "code": "FIELD_NATURALIST",
+    "description": "Studioso empirico e sprezzante dei pericoli, spostatosi in terre sconosciute per catalogare meraviglie e abomini.",
+    "theme": "Inventare un disastro intellettuale (equipaggiamento zoologico distrutto, compagni mercenari fuggiti, preda mostruosa troppo più in alto nella catena alimentare) che getta l'esploratore nella mera sopravvivenza.",
+    "inventoryHints": [
+      "diario di campo illustrato",
+      "kit di raccolta campioni",
+      "coltello",
+      "Denanti per le spedizioni"
+    ]
+  },
+  {
+    "code": "RISING_ASSASSIN",
+    "description": "Giovane assassino in addestramento presso una gilda segreta, sfuggito alla propria organizzazione.",
+    "theme": "La fuga dalla gilda può essere per coscienza improvvisa, bersaglio sbagliato o trappola mortale. Infondere la scena iniziale con paranoia urbana: la sensazione ossessiva di essere pedinato, braccato dalle stesse ombre che un tempo era abituato a manovrare.",
+    "inventoryHints": [
+      "pugnale nascosto",
+      "fiala di sonnifero",
+      "vestiti scuri aderenti",
+      "Denanti dall'ultimo contratto"
+    ]
+  },
+  {
+    "code": "CLANDESTINE_MAGE",
+    "description": "Praticante di magia non autorizzato, costretto a nascondere il suo talento per evitare il linciaggio da parte della Chiesa o della folla.",
+    "theme": "Creare una scena di fuga o copertura saltata: il personaggio ha appena manifestato poteri magici per sbaglio o è stato tradito, e ora deve fuggire dalla comunità rurale inferocita o rigorosa o dagli inquisitori che gli danno la caccia, con addosso solo l'indispensabile.",
+    "inventoryHints": [
+      "abito capace di celare il volto",
+      "appunti magici camuffati da preghiere",
+      "pochi Denanti",
+      "ustioni sulle mani da magia fallita"
+    ]
+  },
+  {
+    "code": "DISILLUSIONED_INQUISITOR",
+    "description": "Braccio armato della Chiesa (Zelota del Corpo Sacro), addestrato a dare la caccia ai maghi, che inizia a dubitare dei dogmi che difende.",
+    "theme": "Inventare una crisi di coscienza o un complotto interno: l'inquisitore ha scoperto che un cardinale o un nobile che doveva proteggere usa segretamente la magia, oppure si è rifiutato di giustiziare un presunto innocente, mettendosi contro i suoi superiori e diventando lui stesso un ricercato.",
+    "inventoryHints": [
+      "simbolo sacro dell'Archeismo smaltato",
+      "arma da botta",
+      "mandato di cattura annullato",
+      "Denanti ecclesiastici"
+    ]
+  },
+  {
+    "code": "OSTRIA_SPY",
+    "description": "Agente operativo sotto l'egida commerciale della Lega di Ostria, viaggia per sabotare o rubare segreti per mantenere lo stallo geopolitico.",
+    "theme": "Il generatore deve inventare un'operazione di sabotaggio andata terribilmente storta. La copertura del personaggio è bruciata, i suoi contatti sono morti o fuggiti, mortificando il suo solito vantaggio tattico e finanziario e lasciandolo solo in territorio ostile (Voth o Thurim).",
+    "inventoryHints": [
+      "documenti contraffatti",
+      "funghi allucinogeni",
+      "pugnale sottile",
+      "abiti civili sfarzosi ma sporchi"
+    ]
+  },
+  {
+    "code": "WALL_DESERTER",
+    "description": "Legionario dell'infinito e logorante confine (Il Vallo) tra Voth e Thurim, fuggito dalla guerra di trincea inutile e sanguinosa.",
+    "theme": "Inserire il personaggio in una situazione di braccaggio serrato: è scampato all'impiccagione per diserzione e si trova dietro le linee nemiche o alleate, dovendo nascondere la sua identità militare imperiale sia ai commilitoni alla sua ricerca che alla popolazione locale ostile.",
+    "inventoryHints": [
+      "armatura imperiale sconsacrata",
+      "spada corta militare",
+      "vecchio mantello logoro",
+      "Pochissimi Denanti o nulla"
+    ]
+  },
+  {
+    "code": "EXILED_NOYAN",
+    "description": "Signore della Guerra (Noyan) della feroce cavalleria leggera del Dominio Thia (Orco o Goblin), spodestato in letali lotte intestine e costretto all'esilio lontano dalle steppe.",
+    "theme": "Sviluppare una scena incentrata sull'umiliazione e la sopravvivenza in terra straniera: il guerriero ha conservato il suo destriero ma ha perso il suo rango e la sua orda. Deve sopravvivere in una città straniera o crocevia (Dograven o simile) affrontando il pregiudizio e l'impossibilità di usare le sue tattiche di orda.",
+    "inventoryHints": [
+      "cavallo da guerra della steppa",
+      "arma da taglio curva tradizionale",
+      "trofeo osseo della sua tribù",
+      "abiti da nomade rattoppati"
+    ]
+  },
+  {
+    "code": "DOGRAVEN_SMUGGLER",
+    "description": "Cinico e scaltro trasportatore di merci illegali attraverso l'esposto e perennemente conteso Ducato di Dograven.",
+    "theme": "Inventare un incrocio mortale tra due fuochi: il contrabbandiere ha perso un carico preziosissimo a causa di soldati (di Voth o Audrock) o di banditi spietati, e ora i suoi spietati datori di lavoro o creditori vogliono la sua testa per ripagare il debito milionario.",
+    "inventoryHints": [
+      "mappa cifrata di tunnel e passi montani",
+      "pugnale in acciaio",
+      "acciarino",
+      "zero Denanti"
+    ]
+  },
+  {
+    "code": "EXPELLED_GUILDSMAN",
+    "description": "Un tempo membro rispettato (Nano o Umano) di una prestigiosa Gilda di Mestiere del glaciale Triumvirato Linderionese, spogliato del suo status e dei suoi brevetti per un presunto crimine corporativo.",
+    "theme": "Inventare un evento in cui il personaggio è stato rovinato dai suoi stessi superiori (ha scoperto un difetto in un'enorme opera pubblica, gli è stata rubata un'invenzione cruciale, o ha rifiutato un patto corrotto con uno Xeroba). È fuggito dal Linderione prima di essere eliminato fisicamente e si ritrova su un continente straniero senza nulla, se non il suo genio intellettuale.",
+    "inventoryHints": [
+      "strumenti di precisione della Gilda rubati",
+      "progetti tecnici cifrati",
+      "calibro in ottonio",
+      "pochissimi Denanti"
+    ]
+  },
+  {
+    "code": "LINDERION_ESCORT",
+    "description": "Mercenario o guardia giurata al servizio delle flotte mercantili linderionesi, incaricato di proteggere l'unica cosa che conta davvero al Sud: i convogli di cibo per sopravvivere al clima polare.",
+    "theme": "Creare una scena in cui il convoglio alimentare vitale che doveva proteggere è appena andato perduto (sequestrato da corsari di Audrock, preda di una bestia marina o razziato a terra). Il personaggio è l'unico sopravvissuto del suo distaccamento, bloccato in un porto ostile (forse a Dograven o Audrock), consapevole che il suo fallimento logistico potrebbe condannare agli stenti la sua gente.",
+    "inventoryHints": [
+      "pesante ascia bipenne in Ferro Nero",
+      "mantello per climi polari (inutile dove si trova ora)",
+      "fiaschetta di liquore forte",
+      "200 Denanti (forse i resti dell'ultimo pagamento)"
+    ]
+  },
+  {
+    "code": "IMPERIAL_TEMPLAR",
+    "description": "Guerriero pesante di un ordine religioso segreto di Voth, addestrato all'uso di base della magia termodinamica (accendere paglia, variare la temperatura, deviare piccola energia cinetica) spacciata per benedizione divina.",
+    "theme": "L'ordine segreto a cui appartiene il paladino è venuto allo scoperto: popolani ignoranti o preti di basso rango non corrotti hanno iniziato a sollevare dubbi sui loro miracoli. Il generatore deve inserire il personaggio nella fase iniziale di questa crisi: è stato appena convocato in segreto dai suoi superiori per mettere a tacere la faccenda. La scena deve apparire come una banale operazione di copertura o intimidazione, ma destinata a degenerare in fretta.",
+    "inventoryHints": [
+      "armatura pesante con le insegne imperiali",
+      "spada e scudo",
+      "simbolo sacro mistificatorio",
+      "Denanti per sopravvivere due o tre giorni"
+    ]
+  }
+]

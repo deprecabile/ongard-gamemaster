@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: ondgard-auth
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres-auth:5432/db-auth}
+    username: ${SPRING_DATASOURCE_USERNAME:ms_usr}
+    password: ${SPRING_DATASOURCE_PASSWORD:ms_usr_password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+        default_schema: auth
+
+jwt:
+  secret: ${JWT_SECRET:dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+  access-token-expiration: 1800
+  refresh-token-expiration: 864000
+
+google:
+  client:
+    id: ${GOOGLE_CLIENT_ID:650458536920-7v7m10gdktkah341b3n5kegtgd5obu33.apps.googleusercontent.com}
+
+ondgard:
+  chat:
+    url: ${ONDGARD_CHAT_URL:http://ondgard-chat:8081}
+  mail:
+    url: ${ONDGARD_MAIL_URL:http://ondgard-mail:8083}
+  frontend:
+    url: ${ONDGARD_FRONTEND_URL:https://ondgard.com}
+
+server:
+  port: 8089
+
+logging:
+  level:
+    com.ondgard: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: ERROR

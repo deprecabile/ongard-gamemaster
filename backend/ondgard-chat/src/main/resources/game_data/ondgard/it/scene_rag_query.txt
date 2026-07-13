@@ -1,0 +1,2 @@
+Instruct: Recupera lore ambientale su clima, meteo, ciclo giorno-notte, stagioni e fenomeni naturali del mondo di gioco
+Query: clima meteo stagioni ora ciclo giorno notte temperatura lune maree vento pioggia neve fulmini tempeste bioma alba tramonto latitudine longitudine

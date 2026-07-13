@@ -1,0 +1,1 @@
+La guerra antica distrusse molti regni.

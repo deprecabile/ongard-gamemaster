@@ -1,0 +1,127 @@
+spring:
+  application:
+    name: ondgard-chat
+
+  jackson:
+    default-property-inclusion: non_null
+    mapper:
+      accept-case-insensitive-enums: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db-game
+    username: ms_usr
+    password: ms_usr_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  # Disable Spring AI auto-configuration — we create ChatModel beans manually in LlmModelConfig
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.model.ollama.autoconfigure.OllamaApiAutoConfiguration
+      - org.springframework.ai.model.ollama.autoconfigure.OllamaChatAutoConfiguration
+      - org.springframework.ai.model.ollama.autoconfigure.OllamaEmbeddingAutoConfiguration
+      - org.springframework.ai.model.google.genai.autoconfigure.chat.GoogleGenAiChatAutoConfiguration
+      - org.springframework.ai.model.google.genai.autoconfigure.embedding.GoogleGenAiEmbeddingConnectionAutoConfiguration
+      - org.springframework.ai.model.google.genai.autoconfigure.embedding.GoogleGenAiTextEmbeddingAutoConfiguration
+      - org.springframework.ai.vectorstore.redis.autoconfigure.RedisVectorStoreAutoConfiguration
+
+  # Redis (local)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  port: 8081
+  shutdown: graceful
+
+spring.lifecycle:
+  timeout-per-shutdown-phase: 20s
+
+# --- AI Configuration ---
+ondgard:
+  account:
+    url: http://localhost:8082
+  ai:
+    gemini:
+      api-key: dummyKey
+      gm-model: gemini-3.1-pro-preview
+      summary-model: gemini-3-flash-preview
+      inventory-model: gemini-3.1-pro-preview
+      inventory-reviewer-model: gemini-3-flash-preview
+      quest-model: gemini-3-flash-preview
+      scene-model: gemini-3-flash-preview
+      validator-model: gemini-3-flash-preview
+      rag-query-model: gemini-2.5-flash
+      advisor-model: gemini-3.1-pro-preview
+      setup-advisor-model: gemini-3.1-pro-preview
+      setup-summary-model: gemini-2.5-flash
+      setup-generator-model: gemini-3.1-pro-preview
+      name-race-setup-model: gemini-3-flash-preview
+      embedding-model: gemini-embedding-001
+      embedding-dimensions: 3072
+      embedding-tpm-limit: 100000
+      options:
+        temperature: 0.7
+        max-output-tokens: 16384
+        top-p: 0.9
+    ollama-gpu:
+      base-url: http://localhost:11434
+      model: VitoF/llama-3.1-8b-italian
+      options:
+        temperature: 0.0
+        num-predict: 512
+        num-ctx: 32768
+        top-p: 1.0
+        top-k: 1
+    ollama-cpu:
+      base-url: http://localhost:11435
+      embedding-model: qwen3-embedding
+
+  rag:
+    chunk-size: 1000
+    min-chunk-size-chars: 350
+    retrieval-top-k: 10
+    retrieval-similarity-threshold: 0.5
+    router-top-k: 5
+    router-similarity-threshold: 0.45
+    router-chunk-size: 300
+    scene-top-k: 30
+    scene-similarity-threshold: 0.3
+    ready-topic: ondgard:rag:ready
+    init-topic: ondgard:rag:init
+    content-hash-key: rag:ondgard:content-hash
+
+  session:
+    flush-every-n-turns: 5
+    inactivity-timeout: 30m
+  setup:
+    session:
+      ttl: 20m
+
+  game:
+    summary:
+      trigger-every-n-turns: 10
+      recent-history-size: 10
+    pipeline:
+      sse-timeout: 30m
+      max-attempts: 3
+      full-lore-turns: 12
+    advisor:
+      max-history-exchanges: 10
+      max-turn-delta: 30
+      max-display-exchanges: 50
+
+logging:
+  level:
+    com.ondgard: DEBUG
+    org.hibernate.SQL: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO

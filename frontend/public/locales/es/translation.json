@@ -1,0 +1,317 @@
+{
+  "common": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "continue": "Continuar",
+    "start": "Iniciar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "loading": "Cargando...",
+    "account": "Cuenta",
+    "logout": "Cerrar sesión"
+  },
+  "auth": {
+    "or": "o",
+    "googleError": "Error al iniciar sesión con Google. Inténtalo de nuevo."
+  },
+  "googleModal": {
+    "title": "Completar Registro",
+    "emailInfo": "Registrando con {{email}}",
+    "chooseUsername": "Elige un nombre de usuario",
+    "completeRegistration": "Completar Registro",
+    "completing": "Completando..."
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "invalidCredentials": "Usuario o contraseña no válidos",
+    "loggingIn": "Iniciando sesión...",
+    "noAccount": "¿No tienes una cuenta?",
+    "registerLink": "Registrarse",
+    "successMessage": "¡Cuenta creada! Inicia sesión para comenzar tu aventura.",
+    "accountNotConfirmed": "Activa tu cuenta a través del correo que te hemos enviado. ¿No lo has recibido? Revisa tu carpeta de spam, o:",
+    "resendLink": "Reenviar correo",
+    "resendSending": "Enviando...",
+    "resendSuccess": "¡Correo enviado! Revisa tu bandeja de entrada.",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "forgotPassword": {
+    "title": "¿Olvidaste tu contraseña?",
+    "description": "Introduce tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+    "sendButton": "Enviar enlace de restablecimiento",
+    "sending": "Enviando...",
+    "success": "Si existe una cuenta con ese correo, te hemos enviado un enlace para restablecer tu contraseña. Revisa tu bandeja de entrada.",
+    "loginLink": "Volver al Login"
+  },
+  "resetPassword": {
+    "title": "Restablecer Contraseña",
+    "newPasswordLabel": "Nueva contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "resetButton": "Restablecer contraseña",
+    "resetting": "Restableciendo...",
+    "success": "¡Contraseña restablecida con éxito! Ya puedes iniciar sesión.",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "invalidToken": "Este enlace ha caducado o no es válido.",
+    "noToken": "No se encontró ningún token de restablecimiento.",
+    "genericError": "Se ha producido un error. Inténtalo de nuevo.",
+    "loginLink": "Volver al Login"
+  },
+  "register": {
+    "title": "Registrarse",
+    "usernameTooShort": "El nombre de usuario debe tener al menos 3 caracteres",
+    "emailInvalid": "Introduce una dirección de correo electrónico válida",
+    "passwordRequirements": "La contraseña debe contener al menos una letra y un número",
+    "checking": "Verificando...",
+    "usernameAvailable": "Nombre de usuario disponible",
+    "usernameTaken": "Nombre de usuario ya en uso",
+    "creatingAccount": "Creando cuenta...",
+    "createAccount": "Crear Cuenta",
+    "accountCreated": "Te hemos enviado un correo de confirmación. Revisa tu bandeja de entrada para activar tu cuenta.",
+    "usernameOrEmailTaken": "Nombre de usuario o correo electrónico ya en uso",
+    "invalidInput": "Nombre de usuario, correo electrónico o contraseña no válidos. Verifica los datos ingresados.",
+    "registrationFailed": "Se ha producido un error en el servidor. Inténtalo más tarde.",
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Iniciar sesión",
+    "passwordRuleMinChars": "Al menos {{min}} caracteres",
+    "passwordRuleLetter": "Al menos una letra",
+    "passwordRuleNumber": "Al menos un número"
+  },
+  "confirm": {
+    "verifying": "Verificando tu cuenta...",
+    "success": "¡Cuenta confirmada! Ya puedes iniciar sesión.",
+    "error": "Este enlace ha caducado o no es válido.",
+    "loginLink": "Ir al Login",
+    "noToken": "No se encontró ningún token de confirmación."
+  },
+  "landing": {
+    "subtitle": "Tu Game Master impulsado por Inteligencia Artificial",
+    "cta": "Comienza la Aventura",
+    "featureGmTitle": "Game Master IA",
+    "featureGmDesc": "Un narrador inteligente que crea aventuras únicas",
+    "featureWorldTitle": "Mundo Viviente",
+    "featureWorldDesc": "Un mundo persistente que evoluciona con tus decisiones",
+    "featureStoryTitle": "Historias Épicas",
+    "featureStoryDesc": "Tramas ramificadas moldeadas por tus decisiones",
+    "readyTitle": "¿Listo para comenzar?"
+  },
+  "dashboard": {
+    "greeting": "Bienvenido, {{username}}",
+    "subtitle": "El Game Master está preparando tu aventura...",
+    "newCampaign": "Nueva Campaña",
+    "newCampaignDesc": "Comienza una nueva aventura épica",
+    "continueCampaign": "Continuar Aventura",
+    "continueCampaignDesc": "Retoma donde lo dejaste"
+  },
+  "campaign": {
+    "notesTitle": "Notas",
+    "notesSaved": "Guardado",
+    "notesUnsaved": "Sin guardar",
+    "quests": "Misiones",
+    "expand": "Expandir",
+    "collapse": "Contraer",
+    "tokenLimitReached": "Has alcanzado el límite de tokens. Ve a la configuración de Cuenta para aumentar tus límites.",
+    "tokenWarning": "Atención: has utilizado el {{percentage}}% de los tokens disponibles.",
+    "tokenLimitPlaceholder": "Límite de tokens alcanzado",
+    "askPlaceholder": "Haz una pregunta al GM...",
+    "actionPlaceholder": "Describe tu acción...",
+    "blocked": "Bloqueado",
+    "waiting": "Espera...",
+    "send": "Enviar",
+    "defaultCharacterName": "Personaje",
+    "errorMessage": "**Error [{{code}}]:** {{description}}",
+    "tabAsk": "Preguntar",
+    "tabAction": "Acción",
+    "tabNotes": "Notas",
+    "askEmptyState": "Pregunta al Game Master lo que quieras sobre el mundo, las reglas o tu situación. Tus preguntas no afectarán la historia.",
+    "askTurnLabel": "Turno {{turn}}",
+    "askAdvisor": "Consejero",
+    "askYou": "Tú"
+  },
+  "initCampaign": {
+    "title": "Nueva Campaña",
+    "createCharacter": "Crea tu personaje",
+    "race": "Raza",
+    "selectRace": "Selecciona una raza",
+    "name": "Nombre",
+    "namePlaceholder": "El nombre de tu personaje",
+    "description": "Descripción",
+    "descriptionPlaceholder": "Describe a tu personaje...",
+    "initialContext": "Contexto inicial",
+    "contextLabel": "Describe el contexto de partida (Markdown soportado)",
+    "contextPlaceholder": "¿Dónde comienza tu aventura? ¿Cuál es la situación de partida? Puedes usar formato Markdown.",
+    "checkingService": "Verificando disponibilidad del servicio...",
+    "creatingCharacter": "Creando personaje...",
+    "initializingCampaign": "Inicializando campaña...",
+    "tokenLimitReached": "Has alcanzado el límite de tokens. Ve a la configuración de Cuenta para aumentar tus límites.",
+    "errorGeneric": "Se ha producido un error. Inténtalo más tarde.",
+    "creating": "Creando...",
+    "startAdventure": "Comenzar la aventura",
+    "helpMeCreate": "Ayúdame a crear",
+    "regenerateCharacter": "Regenerar personaje",
+    "regenerateScene": "Regenerar escena",
+    "generatingContent": "Generando...",
+    "restoring": "Restaurando sesión..."
+  },
+  "setupAdvisor": {
+    "toggleTitle": "Chatea con el consejero",
+    "title": "Consejero de Campaña",
+    "emptyState": "Pregunta al consejero sobre el mundo de Ondgard, las razas, el lore, o pide ayuda para crear tu personaje y situación inicial.",
+    "placeholder": "Pregunta al consejero...",
+    "send": "Enviar",
+    "you": "Tú",
+    "advisor": "Consejero",
+    "clearConversation": "Borrar conversación",
+    "errorGeneric": "Se ha producido un error. Inténtalo de nuevo."
+  },
+  "campaignHeader": {
+    "turn": "Turno",
+    "location": "Ubicación",
+    "date": "Fecha",
+    "weather": "Clima"
+  },
+  "questLog": {
+    "completed": "Completadas",
+    "active": "Activas",
+    "empty": "No hay misiones disponibles."
+  },
+  "inventory": {
+    "loading": "Cargando inventario...",
+    "empty": "No hay inventario disponible",
+    "currency": "Moneda",
+    "denante": "denantes",
+    "transport": "Transporte",
+    "containers": "Contenedores"
+  },
+  "loadCampaign": {
+    "title": "Campañas",
+    "subtitle": "Retoma donde lo dejaste",
+    "loadingCampaigns": "Cargando campañas...",
+    "loadError": "Error al cargar las campañas",
+    "emptyCampaigns": "No se encontraron campañas.",
+    "startNewAdventure": "Comienza una nueva aventura",
+    "confirmDelete": "¿Eliminar la campaña de {{name}}? Esta acción es irreversible.",
+    "deleteError": "Error durante la eliminación",
+    "turnLabel": "Turno {{turn}}",
+    "narrative": "Narrativa",
+    "noNarrative": "No hay resumen disponible.",
+    "activeQuests": "Misiones Activas",
+    "noActiveQuests": "No hay misiones activas",
+    "lastSave": "Último Guardado",
+    "selectCampaign": "Selecciona una campaña"
+  },
+  "account": {
+    "title": "Cuenta",
+    "infoBanner": "Los límites mensuales de tokens se restablecen automáticamente el 1.º de cada mes.",
+    "tokenLimits": "Límites de Tokens",
+    "monthlyLimit": "Límite Mensual",
+    "totalLimit": "Límite Total",
+    "monthlyLimitMustBePositive": "El límite mensual debe ser mayor que 0",
+    "totalLimitMustBePositive": "El límite total debe ser mayor que 0",
+    "monthlyCannotExceedTotal": "El límite mensual no puede superar el límite total",
+    "limitsUpdated": "Límites actualizados correctamente",
+    "saveError": "Error al guardar. Inténtalo de nuevo.",
+    "saving": "Guardando...",
+    "saveLimits": "Guardar Límites",
+    "tokenUsage": "Uso de Tokens",
+    "currentMonth": "Mes Actual",
+    "total": "Total",
+    "usageByCharacter": "Uso por Personaje",
+    "characterColumn": "Personaje",
+    "monthTokensColumn": "Tokens Mes",
+    "totalTokensColumn": "Tokens Totales"
+  },
+  "serviceOverlay": {
+    "title": "El mundo de Ondgard se está materializando...",
+    "subtitle": "El servicio se está preparando. Espera un momento."
+  },
+  "language": {
+    "en": "Inglés",
+    "it": "Italiano",
+    "es": "Español"
+  },
+  "sse": {
+    "GM_WRITING": [
+      "El Game Master está escribiendo...",
+      "La pluma del destino se mueve...",
+      "El narrador compone la escena..."
+    ],
+    "GM_INCONSISTENCY": "¡Inconsistencia detectada! El GM está corrigiendo...",
+    "GM_REWRITING": [
+      "El Game Master está reescribiendo...",
+      "La historia se está reescribiendo..."
+    ],
+    "VALIDATORS_RUNNING": [
+      "Los sabios están analizando la escena...",
+      "Los revisores comprueban la coherencia..."
+    ],
+    "UPDATERS_RUNNING": [
+      "Actualizando el inventario...",
+      "Registrando cambios en tus pertenencias..."
+    ],
+    "CAMPAIGN_PREPARING": "Preparando la campaña...",
+    "INIT_AGENTS": "Inicializando inventario y diario...",
+    "AGENTS_WORKING": [
+      "Los agentes están preparando el mundo...",
+      "El mundo está tomando forma..."
+    ],
+    "CAMPAIGN_SAVING": "Guardando la campaña...",
+    "ADVISOR_THINKING": [
+      "El consejero está reflexionando...",
+      "El sabio consulta los tomos antiguos...",
+      "Se está reuniendo sabiduría..."
+    ],
+    "SETUP_SUMMARIZING": "Resumiendo la conversación...",
+    "SETUP_GENERATING_CHARACTER": [
+      "Tu personaje está tomando forma...",
+      "La pluma da forma a un nuevo héroe..."
+    ],
+    "SETUP_PICKING_NAME": "Eligiendo raza y nombre...",
+    "SETUP_GENERATING_SCENE": [
+      "Creando la escena inicial...",
+      "El mundo se despliega ante ti..."
+    ]
+  },
+  "races": {
+    "TRO": {
+      "name": "Troll",
+      "description": "Imponentes y regenerativos, los trolls son criaturas antiguas ligadas a la tierra. Su piel es dura como la roca."
+    },
+    "UMN": {
+      "name": "Humano",
+      "description": "Versátiles y ambiciosos, los humanos son la raza más extendida. Se adaptan a cualquier entorno y construyen grandes civilizaciones."
+    },
+    "XER": {
+      "name": "Xeroba",
+      "description": "Misteriosos nómadas de las sabanas, los Xeroba poseen una conexión única con los espíritus ancestrales y la tierra salvaje. Su apariencia felina los hace enigmáticos e inescrutables."
+    },
+    "ORC": {
+      "name": "Orco",
+      "description": "Fuertes y orgullosos, los orcos siguen un estricto código de honor tribal. Su resistencia física es legendaria."
+    },
+    "NAN": {
+      "name": "Enano",
+      "description": "Robustos y tenaces, los enanos son hábiles artesanos y mineros. Viven en las profundidades de las montañas, guardan rencor para siempre y custodian antiguas forjas."
+    },
+    "ELF": {
+      "name": "Elfo",
+      "description": "Gráciles y longevos, los elfos viven en armonía con la naturaleza. Su sabiduría milenaria los convierte en maestros de las artes arcanas."
+    },
+    "RET": {
+      "name": "Reptiliano",
+      "description": "De sangre fría y calculadores, los reptilianos son tan antiguos como el mundo mismo."
+    },
+    "GOB": {
+      "name": "Goblin",
+      "description": "Astutos y numerosos, los goblins compensan su pequeño tamaño con astucia e ingenio. Maestros de trampas y emboscadas."
+    },
+    "GNO": {
+      "name": "Gnomo",
+      "description": "Curiosos e inventivos, los gnomos son pequeños de estatura pero grandes de ingenio. Aman los mecanismos y las ilusiones."
+    }
+  },
+  "relativeDate": {
+    "now": "ahora",
+    "minutesAgo": "hace {{count}} min",
+    "hoursAgo": "hace {{count}} horas",
+    "daysAgo": "hace {{count}} días"
+  }
+}

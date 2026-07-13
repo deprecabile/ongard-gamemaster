@@ -1,0 +1,186 @@
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  animation: fadeIn 200ms ease;
+
+  &::backdrop {
+    background: rgb(0 0 0 / 60%);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.modal {
+  width: 90vw;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: $spacing-xl;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  animation: scaleIn 200ms ease;
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: $spacing-xs;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  color: var(--color-accent);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 12px rgb(212 168 67 / 20%);
+  }
+}
+
+.cardDescription {
+  flex-grow: 1;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: $spacing-md;
+}
+
+.btnSelect {
+  width: 100%;
+  padding: $spacing-sm;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: $radius-sm;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: var(--color-accent-hover);
+  }
+}
+
+.btnRefresh {
+  display: block;
+  margin: 0 auto;
+  padding: $spacing-xs $spacing-lg;
+  background: transparent;
+  color: #d4a843;
+  border: 1px solid #d4a843;
+  border-radius: $radius-sm;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    color: #f0c55b;
+    border-color: #f0c55b;
+    box-shadow: 0 0 8px rgb(212 168 67 / 40%);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-xl 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: $spacing-lg;
+}
+
+.errorText {
+  color: var(--color-error);
+  margin-bottom: $spacing-md;
+  font-size: 0.9375rem;
+}
+
+.btnRetry {
+  padding: $spacing-xs $spacing-md;
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: $radius-sm;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

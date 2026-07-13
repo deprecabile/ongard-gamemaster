@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-insert-postman-user-limits" author="devops">
+        <comment>Insert token_usage_limit for postman user (simulates initUserLimits happy flow)</comment>
+        <sql>
+            INSERT INTO token_usage_limit (user_hash, limit_month, limit_total, version, created, updated)
+            VALUES (
+            '997a7552-5c1b-42c6-a0c0-094c50a0ad53',
+            25000000,
+            25000000,
+            1,
+            NOW(),
+            NOW()
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DELETE FROM token_usage_limit WHERE user_hash = '997a7552-5c1b-42c6-a0c0-094c50a0ad53';
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,126 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// ─── Shared chat bubble styles (AskChatPanel + SetupAdvisorChat) ────
+
+@mixin chat-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg);
+    border-radius: $radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: var(--color-text-muted);
+    }
+  }
+}
+
+@mixin empty-state {
+  @include flex-center;
+  padding: $spacing-lg;
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+@mixin message-group {
+  @include flex-col;
+  gap: $spacing-sm;
+}
+
+@mixin bubble {
+  max-width: 85%;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+
+  :global(.wmde-markdown) {
+    background: transparent !important;
+    color: var(--color-text) !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.9375rem !important;
+  }
+}
+
+@mixin bubble-player {
+  align-self: flex-start;
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+  border-radius: $radius-md $radius-md $radius-md 2px;
+}
+
+@mixin bubble-advisor {
+  align-self: flex-end;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md $radius-md 2px $radius-md;
+}
+
+@mixin bubble-author {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: $spacing-xs;
+}
+
+@mixin bubble-meta {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  margin-top: $spacing-xs;
+}
+
+@mixin typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: $spacing-xs 0;
+}
+
+@mixin typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  animation: bounce 1.4s infinite ease-in-out both;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.16s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.32s;
+  }
+}
+
+@mixin bounce-keyframes {
+  @keyframes bounce {
+    0%,
+    80%,
+    100% {
+      transform: scale(0.6);
+      opacity: 0.4;
+    }
+
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

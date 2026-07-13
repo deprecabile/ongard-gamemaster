@@ -1,0 +1,324 @@
+{
+  "common": {
+    "login": "Login",
+    "register": "Register",
+    "continue": "Continue",
+    "start": "Start",
+    "delete": "Delete",
+    "save": "Save",
+    "loading": "Loading...",
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "auth": {
+    "or": "or",
+    "googleError": "Google sign-in failed. Please try again."
+  },
+  "googleModal": {
+    "title": "Complete Registration",
+    "emailInfo": "Registering with {{email}}",
+    "chooseUsername": "Choose a username",
+    "completeRegistration": "Complete Registration",
+    "completing": "Completing..."
+  },
+  "login": {
+    "title": "Login",
+    "invalidCredentials": "Invalid username or password",
+    "loggingIn": "Logging in...",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Register",
+    "successMessage": "Account created! Log in to start your adventure.",
+    "accountNotConfirmed": "Activate your account through the email we sent you. Didn't receive it? Check your spam folder, or:",
+    "resendLink": "Resend email",
+    "resendSending": "Sending...",
+    "resendSuccess": "Email sent! Check your inbox.",
+    "forgotPassword": "Forgot password?"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "description": "Enter your email address and we'll send you a link to reset your password.",
+    "sendButton": "Send reset link",
+    "sending": "Sending...",
+    "success": "If an account exists with that email, we've sent a password reset link. Check your inbox.",
+    "loginLink": "Back to Login"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Confirm password",
+    "resetButton": "Reset password",
+    "resetting": "Resetting...",
+    "success": "Password reset successfully! You can now log in.",
+    "passwordsDontMatch": "Passwords do not match",
+    "invalidToken": "This reset link is expired or invalid.",
+    "noToken": "No reset token found.",
+    "genericError": "An error occurred. Please try again.",
+    "loginLink": "Back to Login"
+  },
+  "register": {
+    "title": "Register",
+    "usernameTooShort": "Username must be at least 3 characters",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequirements": "Password must contain at least one letter and one number",
+    "checking": "Checking...",
+    "usernameAvailable": "Username available",
+    "usernameTaken": "Username already taken",
+    "creatingAccount": "Creating account...",
+    "createAccount": "Create Account",
+    "accountCreated": "We've sent you a confirmation email. Check your inbox to activate your account.",
+    "usernameOrEmailTaken": "Username or email already in use",
+    "invalidInput": "Invalid username, email, or password. Please check your input.",
+    "registrationFailed": "A server error occurred. Please try again later.",
+    "hasAccount": "Already have an account?",
+    "loginLink": "Login",
+    "passwordRuleMinChars": "At least {{min}} characters",
+    "passwordRuleLetter": "At least one letter",
+    "passwordRuleNumber": "At least one number"
+  },
+  "confirm": {
+    "verifying": "Verifying your account...",
+    "success": "Account confirmed! You can now log in.",
+    "error": "This link is expired or invalid.",
+    "loginLink": "Go to Login",
+    "noToken": "No confirmation token found."
+  },
+  "landing": {
+    "subtitle": "Your AI-powered Game Master",
+    "cta": "Start the Adventure",
+    "featureGmTitle": "AI Game Master",
+    "featureGmDesc": "An intelligent narrator that creates unique adventures",
+    "featureWorldTitle": "Living World",
+    "featureWorldDesc": "A persistent world that evolves with your choices",
+    "featureStoryTitle": "Epic Stories",
+    "featureStoryDesc": "Branching storylines shaped by your decisions",
+    "readyTitle": "Ready to begin?"
+  },
+  "dashboard": {
+    "greeting": "Welcome, {{username}}",
+    "subtitle": "The Game Master is preparing your adventure...",
+    "newCampaign": "New Campaign",
+    "newCampaignDesc": "Start a new epic adventure",
+    "continueCampaign": "Continue Adventure",
+    "continueCampaignDesc": "Pick up where you left off"
+  },
+  "campaign": {
+    "notesTitle": "Notes",
+    "notesSaved": "Saved",
+    "notesUnsaved": "Unsaved",
+    "quests": "Quests",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "tokenLimitReached": "You have reached the token limit. Go to Account settings to increase your limits.",
+    "tokenWarning": "Warning: you have used {{percentage}}% of available tokens.",
+    "tokenLimitPlaceholder": "Token limit reached",
+    "askPlaceholder": "Ask the GM a question...",
+    "actionPlaceholder": "Describe your action...",
+    "blocked": "Blocked",
+    "waiting": "Waiting...",
+    "send": "Send",
+    "defaultCharacterName": "Character",
+    "errorMessage": "**Error [{{code}}]:** {{description}}",
+    "tabAsk": "Ask",
+    "tabAction": "Action",
+    "tabNotes": "Notes",
+    "askEmptyState": "Ask the Game Master anything about the world, rules, or your situation. Your questions won't affect the story.",
+    "askTurnLabel": "Turn {{turn}}",
+    "askAdvisor": "Advisor",
+    "askYou": "You"
+  },
+  "initCampaign": {
+    "title": "New Campaign",
+    "createCharacter": "Create your character",
+    "race": "Race",
+    "selectRace": "Select a race",
+    "name": "Name",
+    "namePlaceholder": "Your character's name",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your character...",
+    "initialContext": "Initial Context",
+    "contextLabel": "Describe the starting context (Markdown supported)",
+    "contextPlaceholder": "Where does your adventure begin? What is the starting situation? You can use Markdown format.",
+    "checkingService": "Checking service availability...",
+    "creatingCharacter": "Creating character...",
+    "initializingCampaign": "Initializing campaign...",
+    "tokenLimitReached": "You have reached the token limit. Go to Account settings to increase your limits.",
+    "errorGeneric": "An error occurred. Please try again later.",
+    "creating": "Creating...",
+    "startAdventure": "Start the adventure",
+    "helpMeCreate": "Help me create",
+    "regenerateCharacter": "Regenerate character",
+    "regenerateScene": "Regenerate scene",
+    "generatingContent": "Generating...",
+    "restoring": "Restoring session..."
+  },
+  "setupAdvisor": {
+    "toggleTitle": "Chat with advisor",
+    "title": "Campaign Advisor",
+    "emptyState": "Ask the advisor about Ondgard's world, races, lore, or help with creating your character and starting situation.",
+    "placeholder": "Ask the advisor...",
+    "send": "Send",
+    "you": "You",
+    "advisor": "Advisor",
+    "clearConversation": "Clear conversation",
+    "errorGeneric": "An error occurred. Please try again."
+  },
+  "archetypeModal": {
+    "title": "Choose an Archetype",
+    "select": "Choose",
+    "otherOptions": "Other options",
+    "loadError": "Failed to load archetypes. Please try again.",
+    "retry": "Retry"
+  },
+  "campaignHeader": {
+    "turn": "Turn",
+    "location": "Location",
+    "date": "Date",
+    "weather": "Weather"
+  },
+  "questLog": {
+    "completed": "Completed",
+    "active": "Active",
+    "empty": "No quests available."
+  },
+  "inventory": {
+    "loading": "Loading inventory...",
+    "empty": "No inventory available",
+    "currency": "Currency",
+    "denante": "denante",
+    "transport": "Transport",
+    "containers": "Containers"
+  },
+  "loadCampaign": {
+    "title": "Campaigns",
+    "subtitle": "Pick up where you left off",
+    "loadingCampaigns": "Loading campaigns...",
+    "loadError": "Error loading campaigns",
+    "emptyCampaigns": "No campaigns found.",
+    "startNewAdventure": "Start a new adventure",
+    "confirmDelete": "Delete {{name}}'s campaign? This action is irreversible.",
+    "deleteError": "Error during deletion",
+    "turnLabel": "Turn {{turn}}",
+    "narrative": "Narrative",
+    "noNarrative": "No summary available.",
+    "activeQuests": "Active Quests",
+    "noActiveQuests": "No active quests",
+    "lastSave": "Last Save",
+    "selectCampaign": "Select a campaign"
+  },
+  "account": {
+    "title": "Account",
+    "infoBanner": "Monthly token limits reset automatically on the 1st of every month.",
+    "tokenLimits": "Token Limits",
+    "monthlyLimit": "Monthly Limit",
+    "totalLimit": "Total Limit",
+    "monthlyLimitMustBePositive": "Monthly limit must be greater than 0",
+    "totalLimitMustBePositive": "Total limit must be greater than 0",
+    "monthlyCannotExceedTotal": "Monthly limit cannot exceed the total limit",
+    "limitsUpdated": "Limits updated successfully",
+    "saveError": "Error saving. Please try again.",
+    "saving": "Saving...",
+    "saveLimits": "Save Limits",
+    "tokenUsage": "Token Usage",
+    "currentMonth": "Current Month",
+    "total": "Total",
+    "usageByCharacter": "Usage by Character",
+    "characterColumn": "Character",
+    "monthTokensColumn": "Monthly Tokens",
+    "totalTokensColumn": "Total Tokens"
+  },
+  "serviceOverlay": {
+    "title": "The world of Ondgard is materializing...",
+    "subtitle": "The service is getting ready. Please wait a moment."
+  },
+  "language": {
+    "en": "English",
+    "it": "Italian",
+    "es": "Spanish"
+  },
+  "sse": {
+    "GM_WRITING": [
+      "The Game Master is writing...",
+      "The quill of fate is moving...",
+      "The narrator weaves the scene..."
+    ],
+    "GM_INCONSISTENCY": "Inconsistency detected! The GM is correcting...",
+    "GM_REWRITING": [
+      "The Game Master is rewriting...",
+      "The story is being reshaped..."
+    ],
+    "VALIDATORS_RUNNING": [
+      "The wise men are analyzing the scene...",
+      "The scholars check for consistency..."
+    ],
+    "UPDATERS_RUNNING": [
+      "Updating the inventory...",
+      "Recording changes to your belongings..."
+    ],
+    "CAMPAIGN_PREPARING": "Preparing the campaign...",
+    "INIT_AGENTS": "Initializing inventory and journal...",
+    "AGENTS_WORKING": [
+      "The agents are preparing the world...",
+      "The world is taking shape..."
+    ],
+    "CAMPAIGN_SAVING": "Saving the campaign...",
+    "ADVISOR_THINKING": [
+      "The advisor is pondering...",
+      "The sage consults the ancient tomes...",
+      "Wisdom is being gathered..."
+    ],
+    "SETUP_SUMMARIZING": "Summarizing the conversation...",
+    "SETUP_GENERATING_CHARACTER": [
+      "Crafting your character...",
+      "The quill shapes a new hero..."
+    ],
+    "SETUP_PICKING_NAME": "Choosing race and name...",
+    "SETUP_GENERATING_SCENE": [
+      "Creating the starting scene...",
+      "The world unfolds before you..."
+    ]
+  },
+  "races": {
+    "TRO": {
+      "name": "Troll",
+      "description": "Imposing and regenerative, trolls are ancient creatures bound to the earth. Their skin is as hard as rock."
+    },
+    "UMN": {
+      "name": "Human",
+      "description": "Versatile and ambitious, humans are the most widespread race. They adapt to any environment and build great civilizations."
+    },
+    "XER": {
+      "name": "Xeroba",
+      "description": "Mysterious nomads of the savannas, the Xeroba possess a unique connection with ancestral spirits and the wild land. Their feline appearance makes them enigmatic and inscrutable."
+    },
+    "ORC": {
+      "name": "Orc",
+      "description": "Strong and proud, orcs follow a strict tribal code of honor. Their physical endurance is legendary."
+    },
+    "NAN": {
+      "name": "Dwarf",
+      "description": "Sturdy and tenacious, dwarves are skilled artisans and miners. They live deep within the mountains, hold grudges forever, and guard ancient forges."
+    },
+    "ELF": {
+      "name": "Elf",
+      "description": "Graceful and long-lived, elves live in harmony with nature. Their millennia-old wisdom makes them masters of the arcane arts."
+    },
+    "RET": {
+      "name": "Reptilian",
+      "description": "Cold-blooded and calculating, reptilians are as ancient as the world itself."
+    },
+    "GOB": {
+      "name": "Goblin",
+      "description": "Cunning and numerous, goblins compensate for their small size with cleverness and ingenuity. Masters of traps and ambushes."
+    },
+    "GNO": {
+      "name": "Gnome",
+      "description": "Curious and inventive, gnomes are small in stature but great in wit. They love mechanisms and illusions."
+    }
+  },
+  "relativeDate": {
+    "now": "now",
+    "minutesAgo": "{{count}} min ago",
+    "hoursAgo": "{{count}} hours ago",
+    "daysAgo": "{{count}} days ago"
+  }
+}

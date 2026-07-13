@@ -1,0 +1,26 @@
+[
+  {
+    "code": "SHIPWRECK_AMNESIA",
+    "description": "Sopravvissuto a un evento catastrofico che gli ha causato un'amnesia totale.",
+    "theme": "Tema dettagliato per il generatore della scena.",
+    "inventoryHints": ["oggetto personale enigmatico", "vestiti rovinati", "pochi Denanti"]
+  },
+  {
+    "code": "TROPICAL_PIRATE",
+    "description": "Predone dei mari abituato alla vita di bordo.",
+    "theme": "Tema dettagliato per il generatore della scena.",
+    "inventoryHints": ["sciabola arrugginita", "mappa parziale", "qualche Denante"]
+  },
+  {
+    "code": "CITY_INVESTIGATOR",
+    "description": "Investigatore urbano ai margini della legge.",
+    "theme": "Tema dettagliato per il generatore della scena.",
+    "inventoryHints": ["taccuino logoro", "lente d'ingrandimento", "Denanti per le spese"]
+  },
+  {
+    "code": "BITTER_GUARD",
+    "description": "Ex guardia cittadina allontanata dal servizio.",
+    "theme": "Tema dettagliato per il generatore della scena.",
+    "inventoryHints": ["vecchio distintivo", "spada corta", "pochi Denanti"]
+  }
+]

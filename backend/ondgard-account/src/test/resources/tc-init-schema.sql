@@ -1,0 +1,10 @@
+CREATE USER ms_usr WITH PASSWORD 'ms_usr_password';
+CREATE SCHEMA IF NOT EXISTS account;
+GRANT CONNECT ON DATABASE "db-account" TO ms_usr;
+GRANT USAGE ON SCHEMA account TO ms_usr;
+ALTER USER ms_usr SET search_path TO account, public;
+ALTER USER postgres SET search_path TO account, public;
+ALTER DEFAULT PRIVILEGES IN SCHEMA account
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO ms_usr;
+ALTER DEFAULT PRIVILEGES IN SCHEMA account
+    GRANT USAGE, SELECT ON SEQUENCES TO ms_usr;

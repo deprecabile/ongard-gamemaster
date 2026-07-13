@@ -1,0 +1,2 @@
+Instruct: Recupera lore ambiental sobre clima, tiempo atmosférico, ciclo día-noche, estaciones y fenómenos naturales del mundo de juego
+Query: clima tiempo estaciones hora ciclo día noche temperatura lunas mareas viento lluvia nieve rayos tormentas bioma amanecer atardecer latitud longitud

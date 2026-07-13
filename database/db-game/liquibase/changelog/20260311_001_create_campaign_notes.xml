@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="001-create-campaign-notes" author="devops">
+        <comment>Table for player personal notes, one row per campaign</comment>
+
+        <sql>
+            CREATE TABLE campaign_notes (
+            campaign_id BIGINT NOT NULL,
+            content     TEXT   NOT NULL DEFAULT '',
+            updated     TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_campaign_notes PRIMARY KEY (campaign_id),
+            CONSTRAINT fk_campaign_notes_campaign
+            FOREIGN KEY (campaign_id) REFERENCES campaign (character_id) ON DELETE CASCADE
+            );
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS campaign_notes;</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

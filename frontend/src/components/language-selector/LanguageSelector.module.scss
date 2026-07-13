@@ -1,0 +1,13 @@
+.langSelect {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: $spacing-xs $spacing-sm;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid var(--color-accent);
+  }
+}

@@ -1,0 +1,44 @@
+.publicLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-xl;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: $spacing-lg;
+
+  a {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.main {
+  flex: 1;
+}

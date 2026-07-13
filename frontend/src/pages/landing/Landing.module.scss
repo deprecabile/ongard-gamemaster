@@ -1,0 +1,113 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: $spacing-xl;
+  background: radial-gradient(ellipse at center, #2c2419 0%, #1a1410 70%);
+  width: 100%;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-accent);
+  text-shadow: 0 2px 12px rgb(200 155 60 / 30%);
+  margin-bottom: $spacing-md;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin-bottom: $spacing-xxl;
+}
+
+.cta {
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: $radius-md;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+
+  &:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-xl;
+  padding: $spacing-xxl $spacing-xl;
+  max-width: 960px;
+  width: 100%;
+}
+
+.featureCard {
+  padding: $spacing-xl;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  text-align: center;
+
+  h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+}
+
+.ctaSection {
+  text-align: center;
+  padding: $spacing-xxl $spacing-xl;
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.ctaLinks {
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: center;
+
+  a {
+    padding: $spacing-sm $spacing-xl;
+    border-radius: $radius-sm;
+    font-weight: 600;
+  }
+}
+
+.ctaPrimary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+
+  &:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-bg);
+  }
+}

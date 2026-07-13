@@ -1,0 +1,82 @@
+@use '@/styles/chatBubbles' as chat;
+
+.container {
+  @include flex-col;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: $spacing-sm;
+  gap: $spacing-md;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+
+  @include chat.chat-scrollbar;
+}
+
+.emptyState {
+  flex: 1;
+
+  @include chat.empty-state;
+}
+
+.messageGroup {
+  @include chat.message-group;
+}
+
+// ─── Turn separator ─────────────────────────────────────────
+.turnSeparator {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+}
+
+.turnLabel {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+// ─── Bubbles ────────────────────────────────────────────────
+.bubble {
+  @include chat.bubble;
+}
+
+.bubblePlayer {
+  @include chat.bubble-player;
+}
+
+.bubbleAdvisor {
+  @include chat.bubble-advisor;
+}
+
+.bubbleAuthor {
+  @include chat.bubble-author;
+}
+
+.bubbleMeta {
+  @include chat.bubble-meta;
+}
+
+// ─── Typing indicator ───────────────────────────────────────
+.typingIndicator {
+  @include chat.typing-indicator;
+}
+
+.typingDot {
+  @include chat.typing-dot;
+}
+
+@include chat.bounce-keyframes;

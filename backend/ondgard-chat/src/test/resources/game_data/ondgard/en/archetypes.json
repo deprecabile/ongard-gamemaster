@@ -1,0 +1,26 @@
+[
+  {
+    "code": "SHIPWRECK_AMNESIA",
+    "description": "A survivor of a catastrophic event that caused total amnesia.",
+    "theme": "Detailed theme for the scene generator.",
+    "inventoryHints": ["enigmatic personal item", "damaged clothes", "a few Denanti"]
+  },
+  {
+    "code": "TROPICAL_PIRATE",
+    "description": "A sea raider accustomed to life aboard ship.",
+    "theme": "Detailed theme for the scene generator.",
+    "inventoryHints": ["rusty cutlass", "partial map", "some Denanti"]
+  },
+  {
+    "code": "CITY_INVESTIGATOR",
+    "description": "An urban investigator at the edges of the law.",
+    "theme": "Detailed theme for the scene generator.",
+    "inventoryHints": ["worn notebook", "magnifying glass", "Denanti for expenses"]
+  },
+  {
+    "code": "BITTER_GUARD",
+    "description": "A former city guard dismissed from service.",
+    "theme": "Detailed theme for the scene generator.",
+    "inventoryHints": ["old badge", "short sword", "a few Denanti"]
+  }
+]

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <!-- Changeset 1: Create app_user table -->
+    <changeSet id="001-create-game-user-table" author="devops">
+        <comment>Create app_user table with user_hash, username, email, password_hash, etc.</comment>
+
+        <sql>
+            CREATE TABLE app_user (
+                id BIGINT GENERATED ALWAYS AS IDENTITY,
+                user_hash UUID NOT NULL DEFAULT gen_random_uuid(),
+                created TIMESTAMP WITH TIME ZONE NOT NULL,
+                username TEXT NOT NULL,
+                email TEXT NOT NULL,
+                password_hash TEXT NOT NULL,
+                salt TEXT NOT NULL DEFAULT '',
+                enabled BOOLEAN NOT NULL DEFAULT FALSE,
+                locked_until TIMESTAMP WITH TIME ZONE,
+                last_login TIMESTAMP WITH TIME ZONE,
+                CONSTRAINT pk_app_user PRIMARY KEY (id),
+                CONSTRAINT uq_app_user_hash UNIQUE (user_hash),
+                CONSTRAINT uq_app_user_username UNIQUE (username),
+                CONSTRAINT uq_app_user_email UNIQUE (email)
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS app_user;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Create refresh_token table -->
+    <changeSet id="002-create-refresh-token-table" author="devops">
+        <comment>Create refresh_token table with FK to app_user for JWT refresh management</comment>
+
+        <sql>
+            CREATE TABLE refresh_token (
+                id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                user_id BIGINT NOT NULL,
+            token_hash VARCHAR(64) NOT NULL,
+                expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
+                created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+                revoked BOOLEAN NOT NULL DEFAULT FALSE,
+                CONSTRAINT fk_refresh_token_user FOREIGN KEY (user_id) REFERENCES app_user(id) ON DELETE CASCADE,
+            CONSTRAINT uq_refresh_token_token_hash UNIQUE (token_hash)
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS refresh_token;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Create email_confirmation table -->
+    <changeSet id="003-create-email-confirmation-table" author="devops">
+        <comment>Create email_confirmation table for registration confirmation tokens (SHA-256 hashed)</comment>
+
+        <sql>
+            CREATE TABLE email_confirmation (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            token_hash VARCHAR(64) NOT NULL,
+            user_id BIGINT NOT NULL,
+            expiry TIMESTAMP WITH TIME ZONE NOT NULL,
+            CONSTRAINT pk_email_confirmation PRIMARY KEY (id),
+            CONSTRAINT uq_email_confirmation_token_hash UNIQUE (token_hash),
+            CONSTRAINT uq_email_confirmation_user UNIQUE (user_id),
+            CONSTRAINT fk_email_confirmation_user FOREIGN KEY (user_id) REFERENCES app_user(id) ON DELETE CASCADE
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS email_confirmation;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Add last_email_sent_at to app_user -->
+    <changeSet id="004-add-last-email-sent-at" author="devops">
+        <comment>Add last_email_sent_at to app_user for email throttling</comment>
+
+        <sql>
+            ALTER TABLE app_user ADD COLUMN last_email_sent_at TIMESTAMP WITH TIME ZONE;
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE app_user DROP COLUMN IF EXISTS last_email_sent_at;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Create password_reset table -->
+    <changeSet id="005-create-password-reset-table" author="devops">
+        <comment>Create password_reset table for password reset tokens (SHA-256 hashed)</comment>
+
+        <sql>
+            CREATE TABLE password_reset (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            token_hash VARCHAR(64) NOT NULL,
+            user_id BIGINT NOT NULL,
+            expiry TIMESTAMP WITH TIME ZONE NOT NULL,
+            CONSTRAINT pk_password_reset PRIMARY KEY (id),
+            CONSTRAINT uq_password_reset_token_hash UNIQUE (token_hash),
+            CONSTRAINT uq_password_reset_user UNIQUE (user_id),
+            CONSTRAINT fk_password_reset_user FOREIGN KEY (user_id)
+            REFERENCES app_user(id) ON DELETE CASCADE
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS password_reset;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

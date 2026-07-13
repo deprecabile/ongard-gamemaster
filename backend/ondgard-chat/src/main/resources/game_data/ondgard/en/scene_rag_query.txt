@@ -1,0 +1,2 @@
+Instruct: Retrieve environmental lore about climate, weather, day-night cycle, seasons, and natural phenomena of the game world
+Query: climate weather seasons time day night cycle temperature moons tides wind rain snow lightning storms biome dawn sunset latitude longitude

@@ -1,0 +1,11 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog/db.changelog-master.xml
+  jpa:
+    show-sql: false
+
+ondgard:
+  token:
+    default-limit-month: 500000
+    default-limit-total: 500000

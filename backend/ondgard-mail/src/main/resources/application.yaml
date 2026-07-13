@@ -1,0 +1,11 @@
+server:
+  port: 8083
+
+resend:
+  api:
+    key: ${RESEND_API_KEY:re_placeholder}
+  from: "Ondgard <noreply@ondgard.com>"
+
+logging:
+  level:
+    com.ondgard: DEBUG

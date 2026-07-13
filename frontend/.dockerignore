@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.env.*
+tests
+*.d.scss.ts
+eslint.config.js
+README.md

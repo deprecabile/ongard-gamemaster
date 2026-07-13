@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="001-create-advisor-log-table" author="devops">
+        <comment>Create advisor_log table for ask-mode Q&amp;A exchanges</comment>
+
+        <sql>
+            CREATE TABLE advisor_log (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            campaign_id BIGINT NOT NULL,
+            turn_number INT NOT NULL,
+            user_message TEXT NOT NULL,
+            advisor_response TEXT NOT NULL,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_advisor_log PRIMARY KEY (id),
+            CONSTRAINT fk_advisor_log_campaign FOREIGN KEY (campaign_id)
+            REFERENCES campaign (character_id) ON DELETE CASCADE
+            );
+            CREATE INDEX idx_advisor_log_campaign_id ON advisor_log (campaign_id);
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS advisor_log;</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="001-insert-postman-user" author="devops">
+        <comment>Insert 'postman' user for testing</comment>
+        <sql>
+            INSERT INTO game_user (user_hash, username, created)
+            VALUES (
+                '997a7552-5c1b-42c6-a0c0-094c50a0ad53',
+                'postman',
+                NOW()
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,311 @@
+[
+  {
+    "code": "SHIPWRECK_AMNESIA",
+    "description": "Survivor of a catastrophic event that caused total amnesia. Does not know who they are or how they got here.",
+    "theme": "The catastrophic event is unspecified (shipwreck, attack, magical anomaly). Create a disorienting awakening scenario shrouded in mystery and place strong emphasis on the single enigmatic object (a key, a painting, a medallion... invent one) they possess as a clue to their past.",
+    "inventoryHints": [
+      "enigmatic personal item",
+      "salt-water damaged clothes",
+      "a few Denanti"
+    ]
+  },
+  {
+    "code": "TROPICAL_PIRATE",
+    "description": "Corsair of the warm seas and raider of the Eastern routes, survivor of a life of lawlessness trying to break the iron naval monopoly of the Lega di Ostria.",
+    "theme": "Invent a recent breaking incident tied to the great dangers of Ondgard's seas: a failed assault on an Ostria merchant vessel, a ship smashed to pieces during an unpredictable Tidal Surge of Shinosa, or a mutiny over the division of loot. Lost their ship and crew and is forced to start over alone, possibly hunted by Lega bounty hunters.",
+    "inventoryHints": [
+      "curved boarding saber",
+      "gnomish precision compass (stolen from Ostria)",
+      "bottle of cheap rum",
+      "some Denanti"
+    ]
+  },
+  {
+    "code": "CITY_INVESTIGATOR",
+    "description": "Cynical and brilliant investigator who operates in the urban underworld, specializing in dirty cases the authorities ignore.",
+    "theme": "Invent the details of an ongoing investigation gone wrong: a key witness killed, an employer vanished, political intrigue, smuggling clans, or an uncomfortable discovery that threatens the investigator's very life at the start of the scene.",
+    "inventoryHints": [
+      "worn notebook with cryptic notes",
+      "steel dagger",
+      "waterproof hooded cloak",
+      "Denanti for expenses"
+    ]
+  },
+  {
+    "code": "BITTER_GUARD",
+    "description": "Fallen keeper of order, disillusioned and expelled from the guard for denouncing corrupt superiors.",
+    "theme": "Place the character in a degraded urban scene, emphasizing the gap between their old ideals of justice and the need to survive in the slums while nursing vengeance. May be a drunkard, separated, substance-dependent, or not.",
+    "inventoryHints": [
+      "old dented badge",
+      "regulation short sword",
+      "discharge letter",
+      "a few Denanti"
+    ]
+  },
+  {
+    "code": "KINGDOM_SOLDIER",
+    "description": "Battle-hardened war veteran belonging to a regular army that fell apart after a disastrous campaign.",
+    "theme": "Create a post-disbandment setting (rear lines, refugee camps, isolated roads) and balance the soldier's iron martial discipline with their bewilderment at the absence of orders.",
+    "inventoryHints": [
+      "worn light armor",
+      "regulation spear",
+      "military mess kit",
+      "back pay in Denanti"
+    ]
+  },
+  {
+    "code": "ARCTIC_WHALER",
+    "description": "Seaworker accustomed to the most extreme latitudes, lethal cold, and titanic prey.",
+    "theme": "Invent a lethal disaster or dark omen during the last hunt that gutted the whaling ship and forced the character ashore, weaving in elements of raw survivalism and superstition.",
+    "inventoryHints": [
+      "hunting harpoon",
+      "heavy fur coat",
+      "whale oil",
+      "Denanti earned from the last hunt"
+    ]
+  },
+  {
+    "code": "APPRENTICE_MAGE",
+    "description": "Novice of the arcane arts, inexperienced but ambitious, on the run after discovering a terrible secret of their master.",
+    "theme": "Convey a sense of paranoia or persecution in the opening scene, coupled with the character's burning desire to decipher the forbidden knowledge pilfered during the escape.",
+    "inventoryHints": [
+      "incomplete grimoire",
+      "basic alchemical components",
+      "apprentice robe",
+      "a few pilfered Denanti"
+    ]
+  },
+  {
+    "code": "WILDERNESS_HUNTER",
+    "description": "Solitary hunter deeply bonded to the wild, intolerant of civilized society.",
+    "theme": "May be entirely alone or have tamed an animal that aids in the hunt (a dog, a wolf, or other). Invent an anomalous threat (dangerous beasts, ruthless poachers, a magical event) that brutally shattered the balance of their territory, forcing them into the open.",
+    "inventoryHints": [
+      "longbow",
+      "quiver with arrows",
+      "hunting knife",
+      "rope traps",
+      "pelts to sell for Denanti"
+    ]
+  },
+  {
+    "code": "NAVAL_OFFICER",
+    "description": "Former high-ranking fleet officer, relieved of duty under controversial or disgraceful circumstances.",
+    "theme": "The fleet may be military or commercial. Place the character in a scene that highlights a recent and humiliating fall from grace, depicting the contrast between their lofty commanding demeanor and their current miserable situation.",
+    "inventoryHints": [
+      "faded naval uniform",
+      "gnomish spyglass",
+      "officer's saber",
+      "saved Denanti"
+    ]
+  },
+  {
+    "code": "TRAVELLING_MERCHANT",
+    "description": "Shrewd and persuasive caravaneer whose economic stability suddenly went up in smoke.",
+    "theme": "Invent a sudden ruin (bandits, a swindle suffered, or the loss of cargo) that left the merchant with little more than a basic sample kit, forced to rebuild solely through wit and smooth talk.",
+    "inventoryHints": [
+      "portable scales",
+      "sample wares",
+      "trade route map",
+      "good supply of Denanti"
+    ]
+  },
+  {
+    "code": "WANDERING_BARD",
+    "description": "Street artist and emotion-manipulator who earns a living gleaning secrets and coins in equal measure.",
+    "theme": "Create a dangerous event that occurred hours earlier (an offended patron, a flirtation with the wrong person, overhearing a conspiracy) from which the bard is currently trying to flee.",
+    "inventoryHints": [
+      "well-kept lute",
+      "songbook",
+      "colorful costume",
+      "Denanti earned from performances"
+    ]
+  },
+  {
+    "code": "STORM_FISHERMAN",
+    "description": "Commoner tempered by salt spray, whose entire livelihood was swept away by an overwhelming force.",
+    "theme": "The lost livelihood may be the boat or the village. Avoid theatrical drama and aim for an opening scene rooted in brutal pragmatism: the character is assessing damage, counting remains, and coldly seeking practical means to scrape by.",
+    "inventoryHints": [
+      "patched fishing net",
+      "fishing kit with hooks and lines",
+      "filleting knife",
+      "storm-ward amulet (superstition)",
+      "last Denanti"
+    ]
+  },
+  {
+    "code": "GRIEVING_INNKEEPER",
+    "description": "Innkeeper, pillar of a rural community, from whom everything was torn away by a deliberate disaster.",
+    "theme": "Write the motive for the innkeeper abandoning the safety of hearth and home to undertake a dangerous journey, driven by the searing familial and economic loss and the search for the arsonist.",
+    "inventoryHints": [
+      "old inn key",
+      "family recipe book",
+      "butcher's cleaver",
+      "insurance Denanti"
+    ]
+  },
+  {
+    "code": "ASPIRING_POLITICIAN",
+    "description": "Ambitious minor bureaucrat or diplomat, always relegated to the margins of the real halls of power.",
+    "theme": "Invent a sudden initial incident in which the character finds a scorching opportunity in their hands (intercepted a state secret, found a noble's slush fund, been assigned a suicidal \"unofficial\" task). The current situation poses extreme risk to their immediate survival, but if played right it will be the perfect springboard for the career they have always dreamed of.",
+    "inventoryHints": [
+      "family seal",
+      "letters of introduction",
+      "elegant attire",
+      "Denanti for representation expenses"
+    ]
+  },
+  {
+    "code": "NOBLE_CONCUBINE",
+    "description": "A noble's concubine, a figure once confined to palatial luxury, now fleeing court with secrets that reek of death.",
+    "theme": "Plunge the character among unfamiliar and ruthless common-folk dangers, highlighting the terror of being hunted by noble-hired killers and the lethal weight of what they saw or discovered at court.",
+    "inventoryHints": [
+      "hidden jewel of value",
+      "vial of poison",
+      "discreet travel clothes",
+      "Denanti taken from court"
+    ]
+  },
+  {
+    "code": "SOLD_SLAVE",
+    "description": "Individual branded since youth and forced into brutal labor in the mines or logging camps of the southern kingdom of Audrock.",
+    "theme": "Focus on the physical trauma and the desperate escape: the character has just crossed the border heading north, hunted by slave traders' hounds. Show their inexperience with freedom and social dynamics, coupled with an iron determination never to return to chains.",
+    "inventoryHints": [
+      "broken chains bearing the brand of Audrock",
+      "worn-out clothes",
+      "crust of stale bread",
+      "zero Denanti"
+    ]
+  },
+  {
+    "code": "DISINHERITED_NOBLE",
+    "description": "Noble cast into the streets and stripped of their family name.",
+    "theme": "The cause of disinheritance is unspeakable wrongs. Create a sharp, tragicomic or dramatic contrast between the dire poverty of the current scene and the character's haughty manners, dirty yet regal clothes, and utter practical inability to cope without servants.",
+    "inventoryHints": [
+      "ring with family crest",
+      "disinheritance letter",
+      "once-fine clothes",
+      "last Denanti"
+    ]
+  },
+  {
+    "code": "FIELD_NATURALIST",
+    "description": "Empirical scholar who scorns danger, venturing into unknown lands to catalogue wonders and abominations.",
+    "theme": "Invent an intellectual disaster (zoological equipment destroyed, mercenary companions fled, a monstrous prey far higher on the food chain) that hurls the explorer into mere survival.",
+    "inventoryHints": [
+      "illustrated field journal",
+      "specimen collection kit",
+      "knife",
+      "Denanti for expeditions"
+    ]
+  },
+  {
+    "code": "RISING_ASSASSIN",
+    "description": "Young assassin in training at a secret guild, who escaped their own organization.",
+    "theme": "The escape from the guild may be due to sudden conscience, a wrong target, or a deadly trap. Infuse the opening scene with urban paranoia: the obsessive feeling of being followed, hunted by the very shadows they once commanded.",
+    "inventoryHints": [
+      "concealed dagger",
+      "vial of sleeping draught",
+      "dark fitted clothes",
+      "Denanti from the last contract"
+    ]
+  },
+  {
+    "code": "CLANDESTINE_MAGE",
+    "description": "Unauthorized magic practitioner, forced to hide their talent to avoid being lynched by the Church or the mob.",
+    "theme": "Create a scene of flight or blown cover: the character has just accidentally manifested magical powers or been betrayed, and must now flee from an enraged or strict rural community or from inquisitors on their trail, carrying only the bare essentials.",
+    "inventoryHints": [
+      "garment able to conceal the face",
+      "magical notes disguised as prayers",
+      "a few Denanti",
+      "burns on hands from failed magic"
+    ]
+  },
+  {
+    "code": "DISILLUSIONED_INQUISITOR",
+    "description": "Armed hand of the Church (Zealot of the Corpo Sacro), trained to hunt mages, who is beginning to doubt the dogmas they defend.",
+    "theme": "Invent a crisis of conscience or an internal conspiracy: the inquisitor has discovered that a cardinal or noble they were supposed to protect secretly uses magic, or has refused to execute a presumed innocent, turning against their superiors and becoming a wanted person themselves.",
+    "inventoryHints": [
+      "enameled holy symbol of Archeismo",
+      "bludgeoning weapon",
+      "revoked arrest warrant",
+      "ecclesiastical Denanti"
+    ]
+  },
+  {
+    "code": "OSTRIA_SPY",
+    "description": "Field operative under the commercial aegis of the Lega di Ostria, travelling to sabotage or steal secrets to maintain the geopolitical stalemate.",
+    "theme": "Invent a sabotage operation gone terribly wrong. The character's cover is blown, their contacts are dead or fled, shattering their usual tactical and financial advantage and leaving them alone in hostile territory (Voth or Thurim).",
+    "inventoryHints": [
+      "forged documents",
+      "hallucinogenic mushrooms",
+      "thin dagger",
+      "fancy but dirty civilian clothes"
+    ]
+  },
+  {
+    "code": "WALL_DESERTER",
+    "description": "Legionary from the endless and grinding border (Il Vallo) between Voth and Thurim, fled from a pointless and bloody trench war.",
+    "theme": "Place the character in a tight pursuit situation: they have narrowly escaped hanging for desertion and find themselves behind enemy or allied lines, forced to hide their imperial military identity from both comrades searching for them and the hostile local population.",
+    "inventoryHints": [
+      "desecrated imperial armor",
+      "military short sword",
+      "old worn cloak",
+      "very few Denanti or nothing"
+    ]
+  },
+  {
+    "code": "EXILED_NOYAN",
+    "description": "Warlord (Noyan) of the fierce light cavalry of the Dominio Thia (Orc or Goblin), deposed in lethal internal power struggles and forced into exile far from the steppes.",
+    "theme": "Develop a scene centered on humiliation and survival in a foreign land: the warrior has kept their war horse but lost their rank and horde. They must survive in a foreign city or crossroads (Dograven or similar) facing prejudice and the impossibility of using their horde tactics.",
+    "inventoryHints": [
+      "steppe war horse",
+      "traditional curved bladed weapon",
+      "bone trophy of their tribe",
+      "patched nomad clothes"
+    ]
+  },
+  {
+    "code": "DOGRAVEN_SMUGGLER",
+    "description": "Cynical and shrewd smuggler of illegal goods through the exposed and perpetually contested Duchy of Dograven.",
+    "theme": "Invent a deadly crossfire between two fronts: the smuggler has lost a priceless cargo to soldiers (from Voth or Audrock) or ruthless bandits, and now their merciless employers or creditors want their head to repay the massive debt.",
+    "inventoryHints": [
+      "encrypted map of tunnels and mountain passes",
+      "steel dagger",
+      "fire steel",
+      "zero Denanti"
+    ]
+  },
+  {
+    "code": "EXPELLED_GUILDSMAN",
+    "description": "Once a respected member (Dwarf or Human) of a prestigious Trade Guild of the glacial Triumvirato Linderionese, stripped of status and patents for an alleged corporate crime.",
+    "theme": "Invent an event in which the character was ruined by their own superiors (discovered a flaw in a massive public work, had a crucial invention stolen, or refused a corrupt pact with a Xeroba). They fled Linderione before being physically eliminated and find themselves on a foreign continent with nothing but their intellectual genius.",
+    "inventoryHints": [
+      "stolen Guild precision tools",
+      "encrypted technical blueprints",
+      "brass caliper",
+      "very few Denanti"
+    ]
+  },
+  {
+    "code": "LINDERION_ESCORT",
+    "description": "Mercenary or sworn guard in the service of Linderionese merchant fleets, tasked with protecting the only thing that truly matters in the South: food convoys to survive the polar climate.",
+    "theme": "Create a scene in which the vital food convoy they were supposed to protect has just been lost (seized by Audrock corsairs, taken by a sea beast, or raided on land). The character is the sole survivor of their detachment, stranded in a hostile port (perhaps in Dograven or Audrock), aware that their logistical failure could condemn their people to starvation.",
+    "inventoryHints": [
+      "heavy double-headed axe in Black Iron",
+      "polar-climate cloak (useless where they are now)",
+      "flask of strong liquor",
+      "200 Denanti (perhaps the remains of the last payment)"
+    ]
+  },
+  {
+    "code": "IMPERIAL_TEMPLAR",
+    "description": "Heavy warrior of a secret religious order of Voth, trained in basic thermodynamic magic (lighting straw, altering temperature, deflecting small kinetic energy) passed off as divine blessing.",
+    "theme": "The secret order the paladin belongs to has been exposed: ignorant commoners or uncorrupted low-ranking priests have begun to raise doubts about their miracles. Place the character in the early phase of this crisis: they have just been secretly summoned by their superiors to silence the matter. The scene should appear as a mundane cover-up or intimidation operation, but destined to spiral quickly.",
+    "inventoryHints": [
+      "heavy armor with imperial insignia",
+      "sword and shield",
+      "mystifying holy symbol",
+      "Denanti to survive two or three days"
+    ]
+  }
+]

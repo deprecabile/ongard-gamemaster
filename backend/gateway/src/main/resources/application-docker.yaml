@@ -1,0 +1,98 @@
+spring:
+  data:
+    redis:
+      host: redis
+      port: 6379
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: block-internal
+              uri: no://op
+              predicates:
+                - Path=/api/*/internal/**
+              filters:
+                - SetStatus=403
+              order: -1
+            - id: auth-register-rate-limited
+              uri: http://ondgard-auth:8089
+              predicates:
+                - Path=/api/auth/register
+                - Method=POST
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 5
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@remoteAddrKeyResolver}"
+            - id: auth-resend-rate-limited
+              uri: http://ondgard-auth:8089
+              predicates:
+                - Path=/api/auth/resend-confirmation
+                - Method=POST
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 5
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@remoteAddrKeyResolver}"
+            - id: auth-forgot-password-rate-limited
+              uri: http://ondgard-auth:8089
+              predicates:
+                - Path=/api/auth/forgot-password
+                - Method=POST
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 3
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@remoteAddrKeyResolver}"
+            - id: auth-google-rate-limited
+              uri: http://ondgard-auth:8089
+              predicates:
+                - Path=/api/auth/google
+                - Method=POST
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 5
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@remoteAddrKeyResolver}"
+            - id: auth-route
+              uri: http://ondgard-auth:8089
+              predicates:
+                - Path=/api/auth/**
+            - id: account-route
+              uri: http://ondgard-account:8082
+              predicates:
+                - Path=/api/account/**
+              filters:
+                - RewritePath=/api/account(?<segment>/?.*), /api${segment}
+            - id: chat-sse-route
+              uri: http://ondgard-chat:8081
+              predicates:
+                - Path=/api/chat/ws/**,/api/chat/sse/**
+              filters:
+                - RewritePath=/api/chat/(?<segment>.*), /api/${segment}
+              metadata:
+                connect-timeout: 5000
+                response-timeout: 1800000
+            - id: chat-route
+              uri: http://ondgard-chat:8081
+              predicates:
+                - Path=/api/chat/**
+              filters:
+                - RewritePath=/api/chat/(?<segment>.*), /api/${segment}
+
+jwt:
+  secret: ${JWT_SECRET:dGhpc0lzQVNlY3JldEtleUZvckpXVFNpZ25pbmcxMjM0NTY3ODkw}
+
+logging:
+  level:
+    com.ondgard: INFO
+    org.springframework.cloud.gateway: WARN

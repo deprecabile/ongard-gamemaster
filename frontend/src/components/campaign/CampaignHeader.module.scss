@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: $spacing-md;
+  padding: $spacing-xs $spacing-md;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  min-height: 2rem;
+}
+
+.group {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+  white-space: nowrap;
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.value {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-left: auto;
+}
+
+.separator {
+  width: 1px;
+  align-self: stretch;
+  margin: $spacing-xs 0;
+  background: var(--color-border);
+}

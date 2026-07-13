@@ -1,0 +1,1 @@
+Le montagne del nord sono alte e coperte di neve.

@@ -1,0 +1,7 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog/db.changelog-master.xml
+    default-schema: auth
+  jpa:
+    show-sql: false

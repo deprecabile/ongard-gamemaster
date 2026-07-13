@@ -1,0 +1,33 @@
+.container {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  z-index: 1000;
+  @include flex-col;
+  gap: $spacing-sm;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-accent);
+  border-radius: $radius-md;
+  padding: $spacing-sm $spacing-md;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 40%);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

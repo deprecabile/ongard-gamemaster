@@ -1,0 +1,92 @@
+[
+  {
+    "code": "TRO",
+    "name": "Troll",
+    "description": "Imponenti e rigenerativi, i troll sono creature antiche legate alla terra. La loro pelle è\n            dura come la roccia.",
+    "attributes": {
+      "minHeight": 200.0,
+      "maxHeight": 280.0,
+      "favoriteBiomes": ["paludi", "caverne", "foreste oscure"]
+    }
+  },
+  {
+    "code": "UMN",
+    "name": "Umano",
+    "description": "Versatili e ambiziosi, gli umani sono la razza più diffusa. Si adattano a qualsiasi\n            ambiente e costruiscono grandi civiltà.",
+    "attributes": {
+      "minHeight": 155.0,
+      "maxHeight": 195.0,
+      "favoriteBiomes": ["pianure", "colline", "coste"]
+    }
+  },
+  {
+    "code": "XER",
+    "name": "Xeroba",
+    "description": "Misteriosi nomadi delle savane, gli Xeroba possiedono una connessione unica con gli\n            spiriti ancestrali e la terra selvaggia. Il loro aspetto felino li rende misteriosi ed imperscrutabili.",
+    "attributes": {
+      "minHeight": 140.0,
+      "maxHeight": 170.0,
+      "favoriteBiomes": ["savane", "pianure", "foreste"]
+    }
+  },
+  {
+    "code": "ORC",
+    "name": "Orco",
+    "description": "Forti e fieri, gli orchi seguono un rigido codice d'onore tribale. La loro resistenza\n            fisica è leggendaria.",
+    "attributes": {
+      "minHeight": 175.0,
+      "maxHeight": 220.0,
+      "favoriteBiomes": ["steppe", "paludi", "terre desolate"]
+    }
+  },
+  {
+    "code": "NAN",
+    "name": "Nano",
+    "description": "Robusti e tenaci, i nani sono abili artigiani e minatori. Vivono nelle profondità delle\n            montagne, conservano rancore per sempre e custodiscono antiche forge.",
+    "attributes": {
+      "minHeight": 110.0,
+      "maxHeight": 140.0,
+      "favoriteBiomes": ["montagne", "caverne", "sotterranei"]
+    }
+  },
+  {
+    "code": "ELF",
+    "name": "Elfo",
+    "description": "Aggraziati e longevi, gli elfi vivono in armonia con la natura. La loro saggezza millenaria\n            li rende maestri nelle arti arcane.",
+    "attributes": {
+      "minHeight": 170.0,
+      "maxHeight": 210.0,
+      "favoriteBiomes": ["foreste", "boschi", "radure"]
+    }
+  },
+  {
+    "code": "RET",
+    "name": "Rettiliano",
+    "description": "A sangue freddo e calcolatori, i rettiliani sono antichi quanto il mondo stesso.",
+    "attributes": {
+      "minHeight": 170.0,
+      "maxHeight": 200.0,
+      "favoriteBiomes": ["paludi", "giungle", "deserti"]
+    }
+  },
+  {
+    "code": "GOB",
+    "name": "Goblin",
+    "description": "Astuti e numerosi, i goblin compensano la loro piccola taglia con furbizia e ingegnosità.\n            Maestri di trappole e imboscate.",
+    "attributes": {
+      "minHeight": 90.0,
+      "maxHeight": 130.0,
+      "favoriteBiomes": ["caverne", "sotterranei", "rovine"]
+    }
+  },
+  {
+    "code": "GNO",
+    "name": "Gnomo",
+    "description": "Curiosi e inventivi, gli gnomi sono piccoli di statura ma grandi di ingegno. Amano i\n            meccanismi e le illusioni.",
+    "attributes": {
+      "minHeight": 80.0,
+      "maxHeight": 110.0,
+      "favoriteBiomes": ["colline", "boschi", "prati"]
+    }
+  }
+]

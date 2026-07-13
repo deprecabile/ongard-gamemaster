@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/db-account
+    username: ${DB_ACCOUNT_USER:ms_usr}
+    password: ${DB_ACCOUNT_PASSWORD:ms_usr_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: account
+
+ondgard:
+  token:
+    default-limit-month: 250000
+    default-limit-total: 250000
+
+logging:
+  level:
+    com.ondgard: DEBUG

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-create-token-usage-limit-table" author="devops">
+        <comment>Create token_usage_limit table for per-user monthly/total token limits</comment>
+
+        <sql>
+            CREATE TABLE token_usage_limit (
+            id BIGINT GENERATED ALWAYS AS IDENTITY,
+            user_hash VARCHAR(64) NOT NULL,
+            limit_month BIGINT NOT NULL,
+            limit_total BIGINT NOT NULL,
+            version INT NOT NULL,
+            created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            updated TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_token_usage_limit PRIMARY KEY (id),
+            CONSTRAINT uq_token_usage_limit_user_version UNIQUE (user_hash, version)
+            );
+        </sql>
+
+        <rollback>
+            <sql>DROP TABLE IF EXISTS token_usage_limit;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="002-create-campaign-token-usage-table" author="devops">
+        <comment>Create campaign_token_usage table for per-character token consumption tracking</comment>
+
+        <sql>
+            CREATE TABLE campaign_token_usage (
+            character_hash VARCHAR(64) NOT NULL,
+            user_hash VARCHAR(64) NOT NULL,
+            total_tokens BIGINT NOT NULL DEFAULT 0,
+            month_tokens BIGINT NOT NULL DEFAULT 0,
+            last_reset_month VARCHAR(7) NOT NULL,
+            updated TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+            CONSTRAINT pk_campaign_token_usage PRIMARY KEY (character_hash)
+            );
+            CREATE INDEX idx_campaign_token_usage_user_hash ON campaign_token_usage (user_hash);
+        </sql>
+
+        <rollback>
+            <sql>
+                DROP INDEX IF EXISTS idx_campaign_token_usage_user_hash;
+                DROP TABLE IF EXISTS campaign_token_usage;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

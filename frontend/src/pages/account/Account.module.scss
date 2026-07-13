@@ -1,0 +1,221 @@
+// ─── Layout ─────────────────────────────────────────────────
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  @include flex-col;
+  gap: $spacing-lg;
+  padding-bottom: $spacing-xl;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
+
+// ─── Info banner ────────────────────────────────────────────
+.infoBanner {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  border: 1px solid var(--color-accent);
+  border-radius: $radius-sm;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+}
+
+// ─── Panel ──────────────────────────────────────────────────
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  @include flex-col;
+  gap: $spacing-md;
+}
+
+.panelTitle {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+// ─── Limits form ────────────────────────────────────────────
+.formRow {
+  display: flex;
+  gap: $spacing-md;
+
+  .formField {
+    flex: 1;
+  }
+}
+
+.formField {
+  @include flex-col;
+  gap: $spacing-xs;
+
+  label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  input {
+    padding: $spacing-sm $spacing-md;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-sm;
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+  }
+}
+
+.fieldError {
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
+
+.errorBanner {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-error) 15%, transparent);
+  border: 1px solid var(--color-error);
+  border-radius: $radius-sm;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.successBanner {
+  padding: $spacing-sm $spacing-md;
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  border: 1px solid var(--color-success);
+  border-radius: $radius-sm;
+  color: var(--color-success);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.saveButton {
+  align-self: flex-start;
+  padding: $spacing-sm $spacing-lg;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: $radius-sm;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    opacity var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Usage stats ────────────────────────────────────────────
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+}
+
+.statCard {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  @include flex-col;
+  gap: $spacing-sm;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width var(--transition-base);
+
+  &.normal {
+    background: var(--color-success);
+  }
+
+  &.warning {
+    background: var(--color-accent);
+  }
+
+  &.critical {
+    background: var(--color-error);
+  }
+}
+
+// ─── Character table ────────────────────────────────────────
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  th,
+  td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  td {
+    color: var(--color-text);
+  }
+}
+
+.totalRow {
+  font-weight: 600;
+
+  td {
+    border-bottom: none;
+    color: var(--color-accent);
+  }
+}
+
+// ─── Loading ────────────────────────────────────────────────
+.loading {
+  @include flex-center;
+  padding: $spacing-xl;
+  color: var(--color-text-muted);
+}
